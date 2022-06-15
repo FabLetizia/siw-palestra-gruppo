@@ -6,10 +6,12 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Trainer;
 import com.example.demo.repository.TrainerRepository;
 
+@Service
 public class TrainerService {
 	@Autowired
 	private TrainerRepository trainerRepository;
