@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Inserimento Trainer</title>
+</head>
+<body>
+	
+	
+  
+		<nav>
+			<h1>Palestra MDPL</h1>
+			<div >
+				<ul>
+					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}">ADMIN </a></strong></li>
+					<li><strong><a th:href="@{/admin/trainers}">TRAINER </a></strong></li>
+					<li><strong><a href="/">CORSI </a></strong></li>
+					<li><strong><a href="/">SALE </a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+		
+		<h4>Modifica Trainer</h4>
+	<form th:action="@{'/admin/trainer' + '/modifica' + '/' + ${trainer.id}}" method="POST" th:object="${trainer}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
+				globale</p>
+		</div>
+		<div>
+			Nome: <input type="text" th:field="*{nome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		</div>
+		<div>
+			Cognome: <input type="text" th:field="*{cognome}"  />
+			<div>
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>
+
+		</div>
+		<div>
+			Nazionalita: <input type="text" th:field="*{nazionalita}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
+			</div>
+
+		</div>
+		<div>
+			Eta': <input type="number" th:field="*{eta}" />
+			<div>
+				<span th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}"></span>
+			</div>
+
+		</div>
+		<div>
+			<button type="submit" />
+			Conferma
+		</div>
+	</form>
+  	
+</body>
+</html>
