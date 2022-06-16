@@ -22,8 +22,8 @@ public class CorsoValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-//		if(this.cs.alreadyExists((Chef) target)) {
-//			errors.reject("chef.duplicato");
-//		}
+		if(this.cs.alreadyExists((Corso) target)) {
+			errors.reject("corso.duplicato");
+		}
 	}
 }

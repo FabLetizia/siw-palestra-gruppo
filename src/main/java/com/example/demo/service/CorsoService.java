@@ -30,9 +30,10 @@ public class CorsoService {
 		return corsoRepository.findById(id).get();
 	}
 	
-//	public boolean alreadyExists(Trainer trainer) {
-//		return this.buffetRepository.existsByNomeAndDescrizione(buffet.getNome(), buffet.getDescrizione());
-//	}
+	public boolean alreadyExists(Corso corso) {
+		return this.corsoRepository.existsByNomeAndGiornoAndOra(corso.getNome(), corso.getGiorno(),
+				corso.getOra());
+	}
 	
 	public List<Corso> findAll(){
 		List<Corso> corsi = new ArrayList<>();

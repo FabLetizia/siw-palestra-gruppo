@@ -28,7 +28,7 @@ public class Corso {
 	@NotBlank
 	private String giorno;
 	
-	@NotBlank
+	@NotNull
 	private LocalTime ora;
 	
 	@NotNull
