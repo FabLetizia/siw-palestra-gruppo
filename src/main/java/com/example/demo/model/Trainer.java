@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -28,10 +30,11 @@ public class Trainer {
 	@NotBlank
 	private String nazionalita;
 	
-	@NotBlank
+	@Min(0)
+	@Max(120)
+	@NotNull
 	private Integer eta;
 	
-	@NotNull
 	@OneToOne(cascade = {CascadeType.PERSIST})
 	private Indirizzo indirizzo;
 	

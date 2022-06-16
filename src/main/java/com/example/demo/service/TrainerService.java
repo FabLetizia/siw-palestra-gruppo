@@ -30,9 +30,10 @@ public class TrainerService {
 		return trainerRepository.findById(id).get();
 	}
 	
-//	public boolean alreadyExists(Trainer trainer) {
-//		return this.buffetRepository.existsByNomeAndDescrizione(buffet.getNome(), buffet.getDescrizione());
-//	}
+	public boolean alreadyExists(Trainer trainer) {
+		return this.trainerRepository.existsByNomeAndCognomeAndNazionalitaAndEta(trainer.getNome(),
+				trainer.getCognome(), trainer.getNazionalita(),trainer.getEta());
+	}
 	
 	public List<Trainer> findAll(){
 		List<Trainer> trainers= new ArrayList<Trainer>();

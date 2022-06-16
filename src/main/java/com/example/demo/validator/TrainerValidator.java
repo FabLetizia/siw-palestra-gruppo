@@ -22,9 +22,9 @@ public class TrainerValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-//		if(this.cs.alreadyExists((Chef) target)) {
-//			errors.reject("chef.duplicato");
-//		}
+		if(this.ts.alreadyExists((Trainer) target)) {
+			errors.reject("trainer.duplicato");
+		}
 	}
 
 }
