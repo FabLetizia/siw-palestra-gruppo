@@ -38,7 +38,6 @@ public class Corso {
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	private Trainer trainer;
 
-	@NotNull
 	@ManyToOne
 	private Sala sala; //FIXME forse serve merge
 	

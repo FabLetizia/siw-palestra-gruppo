@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.Corso;
 import com.example.demo.model.Sala;
 import com.example.demo.repository.SalaRepository;
 
@@ -41,5 +42,12 @@ public class SalaService {
 			sale.add(s);
 		}
 		return sale;
+	}
+
+	public void removeSalaDaCorsi(Long id) {
+		Sala sala = salaRepository.findById(id).get();
+		for(Corso c: sala.getCorsi()) {
+			c.setSala(null);
+		}
 	}
 }
