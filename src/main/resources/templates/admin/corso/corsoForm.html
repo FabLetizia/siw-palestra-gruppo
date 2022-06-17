@@ -53,10 +53,18 @@
 		</div>
 		
 		<div>
-			Ora: <input type="datetime" th:field="*{ora}" />
+			Ora inizio: <input type="datetime" th:field="*{oraInizio}" />
 			<div>
-				<span th:if="${#fields.hasErrors('ora')}"
-					th:errors="*{ora}"></span>
+				<span th:if="${#fields.hasErrors('oraInizio')}"
+					th:errors="*{oraInizio}"></span>
+			</div>
+		</div>
+
+		<div>
+			Ora fine: <input type="datetime" th:field="*{oraFine}" />
+			<div>
+				<span th:if="${#fields.hasErrors('oraFine')}"
+					th:errors="*{oraFine}"></span>
 			</div>
 		</div>
 		
