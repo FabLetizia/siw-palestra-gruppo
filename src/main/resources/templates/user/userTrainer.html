@@ -14,7 +14,10 @@
 			<div >
 				<ul>
 					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/user/trainers}">TRAINERS</a></strong></li>
+					<li><strong><a th:href="@{/user/corsi}">CORSI </a></strong></li>
 					<li><strong><a th:href="@{/login}">ADMIN </a></strong></li>
+					
 				</ul>
 				
 			</div>
@@ -34,8 +37,7 @@
 			<ul>
 				<li th:each="corso : ${trainer.corsi}">
 				<strong> <span th:text = "${corso.nome} + ', ' + ${corso.giorno} + ' ' 
-				+ ${corso.oraInizio} + '-' + ${corso.oraFine}
-				+ ' (' + ${corso.sala.nome} + ')'" > </span> </strong>
+				+ ${corso.oraInizio} + '-' + ${corso.oraFine}" > </span> </strong>
 				
 				</li>
 			</ul>

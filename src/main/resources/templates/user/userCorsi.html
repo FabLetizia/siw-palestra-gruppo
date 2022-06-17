@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Trainers</title>
+  <title>Corsi</title>
 </head>
 <body>
 	
@@ -17,18 +17,20 @@
 					<li><strong><a th:href="@{/user/trainers}">TRAINERS</a></strong></li>
 					<li><strong><a th:href="@{/user/corsi}">CORSI </a></strong></li>
 					<li><strong><a th:href="@{/login}">ADMIN </a></strong></li>
+					
 				</ul>
 				
 			</div>
 		</nav>
 		
-		<h4>Elenco Trainer</h4>
+		<h4>Elenco Corsi</h4>
   		<ul>
-			<li th:each="trainer : ${trainers}">
-			<a	th:href="@{'/user/trainer' + '/' + ${trainer.id}}"
-				th:text="${trainer.nome} + ' ' + ${trainer.cognome}">Paolo Rossi</a> 	
+			<li th:each="corso : ${corsi}">
+			<a	th:href="@{'/user/corso' + '/' + ${corso.id}}"
+				th:text="${corso.nome}">Cross fit</a> 	
+	
 			</li>
 		</ul>
-  	
+			
 </body>
 </html>
