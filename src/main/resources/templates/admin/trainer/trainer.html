@@ -38,17 +38,17 @@
 				<li th:each="corso : ${trainer.corsi}">
 				<strong> <span th:text = "${corso.nome} + ', ' + ${corso.giorno} + ' ' 
 				+ ${corso.oraInizio} + '-' + ${corso.oraFine}
-				+ ' (' + ${corso.sala.nome} + ')'" > </span> </strong>
-				
-				<!--	<strong><a
-						th:href="@{'/admin/chef' + '/buffet' + '/' + ${buffet.id}}"
-						th:text="${buffet.nome}"> Nome buffet</a> </strong> 
-				<form th:action="@{'/admin/chef' + '/cancellaBuffet' + '/' + ${buffet.id}}" 
+				" > </span> </strong>
+				<form th:action="@{/admin/cancellaCorsoDaTrainer/{id1}/{id2}(id1=${corso.id}, id2=${trainer.id})}" 
 							method="POST"><button> Cancella </button>
-				</form>    -->
+				</form>    
 				
 				</li>
 			</ul>
+
+			<div>
+		      <a th:href="@{/admin/corsoFormPerTrainer/{id}(id=${trainer.id})}" class="btn btn-info"> + AGGIUNGI CORSO A TRAINER </a>
+	    </div>
 			</div>
 		
   	

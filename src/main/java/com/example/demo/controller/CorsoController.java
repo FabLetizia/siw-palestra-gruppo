@@ -81,6 +81,33 @@ public class CorsoController {
 		return "redirect:/admin/corsi";
 	}
 	
+	@PostMapping("/admin/cancellaCorsoDaTrainer/{id1}/{id2}")
+	public String removeCorsoDaTrainer(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2, Model model) {
+		this.corsoService.remove(id1);
+		return "redirect:/admin/trainer/"+id2;
+	}
+	
+	@GetMapping("/admin/corsoFormPerTrainer/{id}")
+	public String getCorsoFormPerTrainer(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("corso", new Corso(trainerService.findById(id)));
+		model.addAttribute("trainer", trainerService.findById(id));
+		model.addAttribute("sale", salaService.findAll());
+		return "admin/corso/corsoFormPerTrainer.html";
+	}
+	
+	@PostMapping("/admin/addCorsoPerTrainer/{id}")
+	public String addCorsoPerTrainer(@PathVariable("id") Long id, @Valid @ModelAttribute("corso") Corso corso, BindingResult bindingResults, Model model) {
+		this.corsoValidator.validate(corso, bindingResults);
+		
+		if(!bindingResults.hasErrors()) {
+			corsoService.save(corso);
+			return "redirect:/admin/trainer/"+id;
+		}
+		model.addAttribute("trainer", trainerService.findById(id));
+		model.addAttribute("sale", salaService.findAll());
+		return "admin/corso/corsoFormPerTrainer.html";
+	}	
+	
 //	@GetMapping("/admin/modificaTrainer/{id}")
 //	public String getModificaTrainer(@PathVariable("id") Long id, Model model) {
 //		Trainer trainer = this.trainerService.findById(id);
