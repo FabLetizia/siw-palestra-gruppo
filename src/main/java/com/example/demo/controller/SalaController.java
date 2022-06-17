@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Sala;
-import com.example.demo.model.Trainer;
 import com.example.demo.service.SalaService;
 import com.example.demo.validator.SalaValidator;
 
@@ -54,8 +53,7 @@ public class SalaController {
 		
 		if(!bindingResults.hasErrors()) {
 			salaService.save(sala);
-			model.addAttribute("sale", salaService.findAll());
-			return "admin/sala/sale.html";
+			return "redirect:/admin/sale";
 		}
 		return "admin/sala/salaForm.html";
 	}	
@@ -63,6 +61,7 @@ public class SalaController {
 
 	@PostMapping("/admin/cancellaSala/{id}")
 	public String removeSala(@PathVariable("id") Long id, Model model) {
+		this.salaService.removeSalaDaCorsi(id);
 		this.salaService.remove(id);
 		return "redirect:/admin/sale";
 	}

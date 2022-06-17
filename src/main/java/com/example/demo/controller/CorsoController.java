@@ -40,11 +40,16 @@ public class CorsoController {
 		return "admin/corso/corsi.html";
 	}
 
-	//TODO visualizzazione corso
 	@GetMapping("/admin/corso/{id}")
 	public String getCorsoById(@PathVariable("id") Long id, Model model) {
 		Corso corso = corsoService.findById(id);
 		model.addAttribute("corso", corso);
+		String nomeSala = "ancora nessuna sala";
+		if(corsoService.hasSalaNull(corso))
+			model.addAttribute("sala", nomeSala);
+		else
+			model.addAttribute("sala", corso.getSala().getNome());
+		
 		return "admin/corso/corso.html";
 	}
 
