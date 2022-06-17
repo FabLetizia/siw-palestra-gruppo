@@ -16,15 +16,14 @@ public class SalaValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
 		return Sala.class.equals(clazz);
 	}
 
 	@Override
-	public void validate(Object target, Errors errors) {
-//		if(this.cs.alreadyExists((Chef) target)) {
-//			errors.reject("chef.duplicato");
-//		}
+	public void validate(Object o, Errors errors) {
+		if(this.ss.alreadyExists((Sala) o)) {
+			errors.reject("sala.duplicato");
+		}
 	}
 
 }

@@ -16,7 +16,6 @@ public class TrainerValidator implements Validator {
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
-		// TODO Auto-generated method stub
 		return Trainer.class.equals(clazz);
 	}
 

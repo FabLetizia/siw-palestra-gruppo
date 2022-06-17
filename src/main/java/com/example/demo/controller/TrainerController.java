@@ -54,8 +54,7 @@ public class TrainerController {
 		
 		if(!bindingResults.hasErrors()) {
 			trainerService.save(trainer);
-			model.addAttribute("trainers", trainerService.findAll());
-			return "admin/trainer/trainers.html";
+			return "redirect:/admin/trainers";
 		}
 		return "admin/trainer/trainerForm.html";
 	}	
