@@ -62,8 +62,7 @@ public class CorsoController {
 		
 		if(!bindingResults.hasErrors()) {
 			corsoService.save(corso);
-			model.addAttribute("corsi", corsoService.findAll());
-			return "admin/corso/corsi.html";
+			return "redirect:/admin/corsi";
 		}
 		model.addAttribute("trainers", trainerService.findAll());
 		model.addAttribute("sale", salaService.findAll());
