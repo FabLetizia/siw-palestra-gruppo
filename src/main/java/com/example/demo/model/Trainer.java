@@ -37,8 +37,8 @@ public class Trainer {
 	private Integer eta;
 
 	
-	@OneToMany(mappedBy = "trainer", cascade = {CascadeType.MERGE})
-	private List<Corso> corsi; 
+	@OneToMany(mappedBy = "trainer", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+	private List<Corso> corsi;
 	
 	/* COSTRUTTORI */
 	public Trainer() {

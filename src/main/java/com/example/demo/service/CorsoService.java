@@ -43,4 +43,8 @@ public class CorsoService {
 		}
 		return corsi;
 	}
+
+	public boolean hasSalaNull(Corso corso) {
+		return corso.getSala() == null;
+	}
 }
