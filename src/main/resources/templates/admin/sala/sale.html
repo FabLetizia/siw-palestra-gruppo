@@ -1,7 +1,15 @@
-
-
-
-<!-- <nav>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sale</title>
+</head>
+<body>
+	
+	
+  
+		<nav>
 			<h1>Palestra MDPL</h1>
 			<div >
 				<ul>
@@ -13,4 +21,25 @@
 				</ul>
 				
 			</div>
-		</nav> -->
+		</nav>
+		
+		<h4>Elenco Sale</h4>
+  		<ul>
+			<li th:each="sala : ${sale}">
+			<form th:action="@{'/admin/cancellaSala' + '/' + ${sala.id}}" 
+				method="POST">
+			<a	th:href="@{'/admin/sala' + '/' + ${sala.id}}"
+				th:text="${sala.nome}">Sala 1</a> 	
+				<button> Cancella </button>
+			</form>
+			<!--  <a th:href="@{'/admin/modificaCorso' + '/' + ${corso.id}}">
+					<button> Modifica</button>
+			</a>  -->
+			</li>
+		</ul>
+			<div>
+				<a th:href="@{/admin/salaForm}" >Aggiungi nuova Sala</a>
+			</div>
+  	
+</body>
+</html>
