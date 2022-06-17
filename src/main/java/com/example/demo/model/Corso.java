@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import javax.persistence.CascadeType;
@@ -8,13 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Corso {
+	
+	/* VARIABILI DI ISTANZA */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -29,7 +29,10 @@ public class Corso {
 	private String giorno;
 	
 	@NotNull
-	private LocalTime ora;
+	private LocalTime oraInizio;
+	
+	@NotNull
+	private LocalTime oraFine;
 	
 	@NotNull
 	@ManyToOne(cascade = {CascadeType.MERGE})
@@ -37,12 +40,14 @@ public class Corso {
 
 	@NotNull
 	@ManyToOne
-	private Sala sala;
+	private Sala sala; //FIXME forse serve merge
 	
+	/* COSTRUTTORI */
 	public Corso() {
 
 	}
 	
+	/* GETTERS E SETTERS */
 	public Long getId() {
 		return id;
 	}
@@ -75,14 +80,6 @@ public class Corso {
 		this.giorno = giorno;
 	}
 
-	public LocalTime getOra() {
-		return ora;
-	}
-
-	public void setOra(LocalTime ora) {
-		this.ora = ora;
-	}
-
 	public Trainer getTrainer() {
 		return trainer;
 	}
@@ -98,6 +95,20 @@ public class Corso {
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
-	
-	
+
+	public LocalTime getOraInizio() {
+		return oraInizio;
+	}
+
+	public void setOraInizio(LocalTime oraInizio) {
+		this.oraInizio = oraInizio;
+	}
+
+	public LocalTime getOraFine() {
+		return oraFine;
+	}
+
+	public void setOraFine(LocalTime oraFine) {
+		this.oraFine = oraFine;
+	}
 }

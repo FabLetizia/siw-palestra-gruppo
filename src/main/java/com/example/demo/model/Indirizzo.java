@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Indirizzo {
+	/* VARIABILI DI ISTANZA */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -21,10 +22,12 @@ public class Indirizzo {
 	@NotBlank
 	private String cap;
 	
+	/* COSTRUTTORI */
 	public Indirizzo() {
 		
 	}
 
+	/* GETTERS E SETTERS */
 	public Long getId() {
 		return id;
 	}

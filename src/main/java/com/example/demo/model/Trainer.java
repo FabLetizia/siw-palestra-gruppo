@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Trainer {
+	
+	/* VARIABILI DI ISTANZA */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -35,16 +37,18 @@ public class Trainer {
 	@NotNull
 	private Integer eta;
 	
-	@OneToOne(cascade = {CascadeType.PERSIST})
+	@OneToOne(cascade = {CascadeType.PERSIST})  //FIXME remove forse
 	private Indirizzo indirizzo;
 	
 	@OneToMany(mappedBy = "trainer", cascade = {CascadeType.REMOVE,CascadeType.MERGE})
 	private List<Corso> corsi; 
 	
+	/* COSTRUTTORI */
 	public Trainer() {
 		this.corsi = new ArrayList<>();
 	}
 
+	/* GETTERS E SETTERS */
 	public Long getId() {
 		return id;
 	}
