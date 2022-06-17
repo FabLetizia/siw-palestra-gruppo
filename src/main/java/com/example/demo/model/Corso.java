@@ -46,6 +46,10 @@ public class Corso {
 
 	}
 	
+	public Corso(Trainer t) {
+		this.trainer=t;
+	}
+
 	/* GETTERS E SETTERS */
 	public Long getId() {
 		return id;
