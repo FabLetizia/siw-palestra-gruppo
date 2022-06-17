@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Corso</title>
+</head>
+<body>
+	
+	
+  
+		<nav>
+			<h1>Palestra MDPL</h1>
+			<div >
+				<ul>
+					<li><strong><a href="/"> HOME </a></strong></li>
+					<li><strong><a th:href="@{/user/trainers}">TRAINERS</a></strong></li>
+					<li><strong><a th:href="@{/user/corsi}">CORSI </a></strong></li>
+					<li><strong><a th:href="@{/login}">ADMIN </a></strong></li>
+					
+				</ul>
+				
+			</div>
+		</nav>
+		
+		<h4>Descrizione Corso</h4>
+		
+			<strong><span th:text="${corso.nome}">nome</span>
+			<span> svolto dal trainer </span>
+			<span th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span></strong> 
+			<div>
+				<strong> <span>Giorno:</span><span th:text="${corso.giorno} + ', ' + 
+				${corso.oraInizio} + '-' + ${corso.oraFine}">
+				giorno e ora</span></strong>
+			</div>
+			<div>
+				<strong> <span>Sala:</span><span th:text="${sala}">
+				sala</span></strong>
+			</div>
+			<div>
+				<strong><span>Descrizione:</span><span th:text="${corso.descrizione}">descrizione</span></strong>
+			</div>
+			
+
+  	
+</body>
+</html>

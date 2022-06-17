@@ -1,0 +1,71 @@
+/* FOGLIO DI STILE PER I TEMPLATE HTML */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Charis SIL', serif;
+}
+
+header{
+	display: flex;
+	justify-content: center;
+	background-image: url(https://www.consumatori.it/wp-content/uploads/2020/06/UNC_palestre-coronavirus.jpg);
+	height: 350px;
+	background-attachment: fixed;
+	background-size: cover;
+
+}
+
+#navbar{
+	margin: 15px;
+	height: 60px;
+	width: 50%;
+	border-radius: 5px;
+	background-color: #590696;
+	display: flex;
+  	justify-content: space-around;
+  	align-items: center;
+}
+
+.button{
+	text-decoration: none;
+	color: #00FFAB;
+}
+
+.button-outlined{
+	text-decoration: none;
+	color: #590696;
+	background-color: #00FFAB;
+	border-radius: 3px;
+}
+
+.footer-item{
+	flex-grow: 1;
+	display: flex;
+  	align-items: center;
+  	flex-direction: column;
+}
+
+.intestazione_contatti{
+  padding: 25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mappa{
+	height: 30%;
+	width: 40%;
+}
+
+#footer{
+	color: #00FFAB;
+	height: 300px;
+	background-color: #590696;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
