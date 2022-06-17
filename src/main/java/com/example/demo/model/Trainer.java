@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -36,9 +35,7 @@ public class Trainer {
 	@Max(120)
 	@NotNull
 	private Integer eta;
-	
-	@OneToOne(cascade = {CascadeType.PERSIST})  //FIXME remove forse
-	private Indirizzo indirizzo;
+
 	
 	@OneToMany(mappedBy = "trainer", cascade = {CascadeType.REMOVE,CascadeType.MERGE})
 	private List<Corso> corsi; 
@@ -87,14 +84,6 @@ public class Trainer {
 
 	public void setEta(Integer eta) {
 		this.eta = eta;
-	}
-
-	public Indirizzo getIndirizzo() {
-		return indirizzo;
-	}
-
-	public void setIndirizzo(Indirizzo indirizzo) {
-		this.indirizzo = indirizzo;
 	}
 
 	public List<Corso> getCorsi() {
