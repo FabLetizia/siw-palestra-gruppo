@@ -13,6 +13,7 @@ import com.example.demo.repository.CorsoRepository;
 
 @Service
 public class CorsoService {
+	
 	@Autowired
 	private CorsoRepository corsoRepository;
 	
@@ -31,8 +32,8 @@ public class CorsoService {
 	}
 	
 	public boolean alreadyExists(Corso corso) {
-		return this.corsoRepository.existsByNomeAndGiornoAndOra(corso.getNome(), corso.getGiorno(),
-				corso.getOra());
+		return this.corsoRepository.existsByNomeAndGiornoAndOraInizio(corso.getNome(), corso.getGiorno(),
+				corso.getOraInizio());
 	}
 	
 	public List<Corso> findAll(){

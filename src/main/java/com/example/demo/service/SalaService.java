@@ -13,6 +13,7 @@ import com.example.demo.repository.SalaRepository;
 
 @Service
 public class SalaService {
+	
 	@Autowired
 	private SalaRepository salaRepository;
 	
@@ -30,9 +31,9 @@ public class SalaService {
 		return salaRepository.findById(id).get();
 	}
 	
-//	public boolean alreadyExists(Trainer trainer) {
-//		return this.buffetRepository.existsByNomeAndDescrizione(buffet.getNome(), buffet.getDescrizione());
-//	}
+	public boolean alreadyExists(Sala sala) {
+		return this.salaRepository.existsByNome(sala.getNome());
+	}
 	
 	public List<Sala> findAll(){
 		List<Sala> sale = new ArrayList<>();

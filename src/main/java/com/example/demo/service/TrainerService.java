@@ -13,6 +13,7 @@ import com.example.demo.repository.TrainerRepository;
 
 @Service
 public class TrainerService {
+	
 	@Autowired
 	private TrainerRepository trainerRepository;
 	
