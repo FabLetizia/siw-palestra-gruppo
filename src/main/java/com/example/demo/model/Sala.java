@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Sala {
@@ -26,7 +27,7 @@ public class Sala {
 	
 	@Min(5)
 	@Max(100)
-	@NotBlank
+	@NotNull
 	private Integer capienza;
 	
 	@OneToMany(mappedBy = "sala",cascade = {CascadeType.MERGE})

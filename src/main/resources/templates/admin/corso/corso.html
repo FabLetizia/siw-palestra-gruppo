@@ -29,7 +29,8 @@
 			<span> svolto dal trainer </span>
 			<span th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span></strong> 
 			<div>
-				<strong> <span>Giorno:</span><span th:text="${corso.giorno} + ' ' + ${corso.ora}">
+				<strong> <span>Giorno:</span><span th:text="${corso.giorno} + ', ' + 
+				${corso.oraInizio} + '-' + ${corso.oraFine}">
 				giorno e ora</span></strong>
 			</div>
 			<div>

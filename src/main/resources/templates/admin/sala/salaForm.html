@@ -24,7 +24,7 @@
 		</nav>
 		
 		<h4>Aggiungi Sala</h4>
-	<form th:action="@{/admin/sla}" method="POST" th:object="${sala}">
+	<form th:action="@{/admin/sala}" method="POST" th:object="${sala}">
 		<div th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
 				globale</p>
