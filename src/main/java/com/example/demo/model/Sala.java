@@ -15,6 +15,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Sala {
+	
 	/* VARIABILI DI ISTANZA */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,13 +24,13 @@ public class Sala {
 	@NotBlank
 	private String nome;
 	
-	@Min(0)
+	@Min(5)
 	@Max(100)
 	@NotBlank
 	private Integer capienza;
 	
 	@OneToMany(mappedBy = "sala",cascade = {CascadeType.MERGE})
-	private List<Corso> corsi;
+	private List<Corso> corsi;  //FIXME lista ordinata in base agli orari
 
 	/* COSTRUTTORI */
 	public Sala() {

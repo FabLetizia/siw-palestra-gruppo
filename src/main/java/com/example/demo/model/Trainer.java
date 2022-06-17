@@ -31,8 +31,8 @@ public class Trainer {
 	@NotBlank
 	private String nazionalita;
 	
-	@Min(0)
-	@Max(120)
+	@Min(18)
+	@Max(100)
 	@NotNull
 	private Integer eta;
 
