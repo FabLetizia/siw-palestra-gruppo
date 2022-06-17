@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Corso;
-import com.example.demo.model.Trainer;
 import com.example.demo.service.CorsoService;
 import com.example.demo.service.SalaService;
 import com.example.demo.service.TrainerService;
@@ -38,16 +37,15 @@ public class CorsoController {
 	public String getCorsi(Model model) {
 		List<Corso> corsi = corsoService.findAll();  
 		model.addAttribute("corsi", corsi);
-		return "corso/corsi.html";
+		return "admin/corso/corsi.html";
 	}
 
+	//TODO visualizzazione corso
 	@GetMapping("/admin/corso/{id}")
 	public String getCorsoById(@PathVariable("id") Long id, Model model) {
 		Corso corso = corsoService.findById(id);
 		model.addAttribute("corso", corso);
-		model.addAttribute("trainer", corso.getTrainer());
-		model.addAttribute("sala", corso.getSala());
-		return "corso/corso.html";
+		return "admin/corso/corso.html";
 	}
 
 	@GetMapping("/admin/corsoForm")
@@ -55,7 +53,7 @@ public class CorsoController {
 		model.addAttribute("corso", new Corso());
 		model.addAttribute("trainers", trainerService.findAll());
 		model.addAttribute("sale", salaService.findAll());
-		return "corso/corsoForm.html";
+		return "admin/corso/corsoForm.html";
 	}
 
 	@PostMapping("/admin/corso")
@@ -65,19 +63,18 @@ public class CorsoController {
 		if(!bindingResults.hasErrors()) {
 			corsoService.save(corso);
 			model.addAttribute("corsi", corsoService.findAll());
-			return "corso/corsi.html";
+			return "admin/corso/corsi.html";
 		}
 		model.addAttribute("trainers", trainerService.findAll());
 		model.addAttribute("sale", salaService.findAll());
-		return "corso/corsoForm.html";
+		return "admin/corso/corsoForm.html";
 	}	
 	
 
 	@PostMapping("/admin/cancellaCorso/{id}")
 	public String removeCorso(@PathVariable("id") Long id, Model model) {
 		this.corsoService.remove(id);
-		model.addAttribute("corsi", this.corsoService.findAll());
-		return "corso/corsi.html";
+		return "redirect:/admin/corsi";
 	}
 	
 //	@GetMapping("/admin/modificaTrainer/{id}")

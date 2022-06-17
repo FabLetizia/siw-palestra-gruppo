@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminController {
 	@GetMapping("/admin/admin")
 	public String getAmministratore(Model model) {
-		return "admin.html";
+		return "admin/admin.html";
 	}
 }
