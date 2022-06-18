@@ -89,7 +89,7 @@ public class CorsoController {
 	
 	@GetMapping("/admin/corsoFormPerTrainer/{id}")
 	public String getCorsoFormPerTrainer(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("corso", new Corso(trainerService.findById(id)));
+		model.addAttribute("corso", new Corso());
 		model.addAttribute("trainer", trainerService.findById(id));
 		model.addAttribute("sale", salaService.findAll());
 		return "admin/corso/corsoFormPerTrainer.html";
@@ -97,6 +97,7 @@ public class CorsoController {
 	
 	@PostMapping("/admin/addCorsoPerTrainer/{id}")
 	public String addCorsoPerTrainer(@PathVariable("id") Long id, @Valid @ModelAttribute("corso") Corso corso, BindingResult bindingResults, Model model) {
+		corso.setTrainer(trainerService.findById(id));
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
@@ -107,6 +108,38 @@ public class CorsoController {
 		model.addAttribute("sale", salaService.findAll());
 		return "admin/corso/corsoFormPerTrainer.html";
 	}	
+	
+	@GetMapping("/admin/modificaCorso/{id}")
+	public String getModificaCorso(@PathVariable("id") Long id, Model model) {
+		Corso corso = this.corsoService.findById(id);
+		model.addAttribute("corso", corso);
+		model.addAttribute("sale", salaService.findAll());
+		return "admin/corso/modificaCorso.html";
+	}
+	
+	@PostMapping("/admin/aggiornaCorso/{id}")
+	public String updateCorso(@PathVariable Long id, @Valid @ModelAttribute("corso") Corso corso, BindingResult bindingResults, Model model) {
+		this.corsoValidator.validateDellaSala(corso, bindingResults);
+		if(!bindingResults.hasErrors()) {
+			Corso oldCorso = corsoService.findById(id);
+			oldCorso.setId(corso.getId());
+			oldCorso.setNome(corso.getNome());
+			oldCorso.setDescrizione(corso.getDescrizione());
+			oldCorso.setGiorno(corso.getGiorno());
+			oldCorso.setOraInizio(corso.getOraInizio());
+			oldCorso.setOraFine(corso.getOraFine());
+			oldCorso.setSala(corso.getSala());
+			corsoService.updateCorso(oldCorso);
+			model.addAttribute("corso", oldCorso);
+			return "redirect:/admin/corsi";
+		}
+		else {
+			model.addAttribute("corso", corso);
+			model.addAttribute("sale", salaService.findAll());
+			return "admin/corso/modificaCorso.html";
+		}
+			
+	}
 	
 //	@GetMapping("/admin/modificaTrainer/{id}")
 //	public String getModificaTrainer(@PathVariable("id") Long id, Model model) {

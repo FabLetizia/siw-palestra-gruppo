@@ -47,4 +47,17 @@ public class CorsoService {
 	public boolean hasSalaNull(Corso corso) {
 		return corso.getSala() == null;
 	}
+
+	public boolean hasNullTrainer(Corso corso) {
+		return corso.getTrainer()==null;
+	}
+
+	public boolean SalaOccupata(Corso corso) {
+		return this.corsoRepository.existsByGiornoAndOraInizioAndSala(corso.getGiorno(), corso.getOraInizio(),corso.getSala());
+	}
+
+	public void updateCorso(Corso corso) {
+		this.save(corso);
+		
+	}
 }
