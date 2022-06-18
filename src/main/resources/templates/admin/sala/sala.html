@@ -43,6 +43,10 @@
 				<li th:each="corso : ${sala.corsi}">
 				<strong> <span th:text = "${corso.nome} + ', ' + ${corso.giorno} + ' ' 
 				+ ${corso.oraInizio} + '-' + ${corso.oraFine}"> </span> </strong>
+				<form th:action="@{/admin/cancellaCorsoDaSala/{id1}/{id2}(id1=${sala.id}, id2=${corso.id})}"
+				method="POST">
+				<button> Cancella </button>	 
+			  </form>
 				</li>
 			</ul>	
 
