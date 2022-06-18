@@ -75,7 +75,6 @@ public class TrainerController {
 	
 	@PostMapping("/admin/trainer/modifica/{id}")
 	public String updateTrainer(@Valid @ModelAttribute("trainer") Trainer trainer, @PathVariable("id") Long id, BindingResult bindingResults, Model model) {
-		this.trainerValidator.validate(trainer, bindingResults);
 		Trainer oldTrainer = this.trainerService.findById(id);
 		
 		if(!bindingResults.hasErrors()) {
