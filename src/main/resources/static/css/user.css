@@ -23,16 +23,17 @@ header{
 	margin: 15px;
 	height: 60px;
 	width: 50%;
-	border-radius: 5px;
+	border-radius: 15px;
 	background-color: #590696;
 	display: flex;
-  	justify-content: space-around;
-  	align-items: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .button{
 	text-decoration: none;
 	color: #00FFAB;
+	font-weight: bold;
 }
 
 .button-outlined{
@@ -40,6 +41,43 @@ header{
 	color: #590696;
 	background-color: #00FFAB;
 	border-radius: 3px;
+	font-weight: bold;
+}
+
+.main-info{
+	color: #00FFAB;	
+	display: flex;
+	justify-content: center;
+}
+
+.info{
+	background-color: #590696;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	width: 35%;
+	border-radius: 25px;
+	border: solid 5px;
+	border-color: #590696;
+	padding: 2.5%;
+	margin: 3%;
+}
+
+.step{
+	color: #590696;
+	background-color: #00FFAB;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	width: 15%;
+	border-radius: 25px;
+	border-color: #590696;
+	padding: 2.5%;
+	margin: 3%;
 }
 
 .footer-item{
@@ -61,8 +99,9 @@ header{
 }
 
 #footer{
+	background-image: -webkit-linear-gradient(top, #590696 0%, #00FFAB 100%);
 	color: #00FFAB;
-	height: 300px;
+	height: 400px;
 	background-color: #590696;
 	display: flex;
 	align-items: center;
