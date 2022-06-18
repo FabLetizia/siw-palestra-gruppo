@@ -51,4 +51,8 @@ public class CorsoService {
 	public boolean hasNullTrainer(Corso corso) {
 		return corso.getTrainer()==null;
 	}
+
+	public boolean SalaOccupata(Corso corso) {
+		return this.corsoRepository.existsByGiornoAndOraInizioAndSala(corso.getGiorno(), corso.getOraInizio(),corso.getSala());
+	}
 }

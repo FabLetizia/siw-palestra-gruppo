@@ -25,6 +25,10 @@ public class CorsoValidator implements Validator {
 			errors.reject("corso.duplicato");
 		}
 		
+		if(this.cs.SalaOccupata((Corso) target)) {
+			errors.reject("corso.insalaoccupata");
+		}
+		
 		if(this.cs.hasNullTrainer((Corso) target)) {
 			errors.reject("corso.trainernull");
 		}
