@@ -94,7 +94,7 @@ nav img {
 
 .elenco-pagina {
 	float: none;
-	border-radius: 8px;
+	border-radius: 10px;
 	width: 90%;
 	color: #00FFAB;
 	background: rgb(0, 0, 0, .5);
@@ -104,3 +104,82 @@ nav img {
 	font-size: 28px;
 }
 
+.elenco {
+	border-radius: 10px;
+	width: 40%;
+	color: white;
+	background: rgb(0, 0, 0, .7);
+	text-align: left;
+	margin-left: 3%;
+	padding: 10px;
+	font-size: 28px;
+	list-style-position: inherit;
+}
+
+.elenco ul li a {
+	color: white;
+	text-decoration: blink;
+	font-size: 30px;
+}
+
+.elenco div a {
+	color: silver;
+	text-align: center;
+	text-decoration: underline;
+	font-size: 20px;
+}
+
+.elenco h4{
+	color: #D151FF;
+	text-align: left;
+}
+
+.elenco form{
+	display: inline-block;
+}
+
+.elenco ul li{
+	list-style: none;
+	color: #D151FF;
+	display: list-item;
+	position: relative;
+}
+
+.elenco ul li span {
+	color: white;
+}
+
+.elenco h1 {
+	color: #D151FF;
+	text-align: left;
+	font-size: 30px;
+}
+
+.elenco input {
+	font-size: 15px;
+	border-color: purple;
+	border-radius: 5px;
+	border-width: 3px;
+	padding: 3px;
+}
+
+button.cancella:hover {
+	border-radius: 6px;
+	background-color: red;
+	border: none;
+	font-size: 20px;
+}
+
+button.modifica:hover {
+	border-radius: 6px;
+	background-color: yellow;
+	border: none;
+	font-size: 20px;
+}
+
+button.conferma:hover {
+	border-radius: 6px;
+	background-color: green;
+	border: none;
+	font-size: 20px;
+}
