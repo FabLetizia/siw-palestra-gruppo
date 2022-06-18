@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Inserimento corso</title>
+  <title>Admin: inserimento corso a sala</title>
 </head>
 <body>
 	
@@ -24,7 +24,7 @@
 		</nav>
 		
 		<h4>Aggiungi Corso</h4>
-	<form th:action="@{'/admin/addCorsoPerTrainer/' + ${trainer.id}}" method="POST" th:object="${corso}">
+	<form th:action="@{'/admin/addCorsoPerSala/' + ${sala.id}}" method="POST" th:object="${corso}">
 		<div th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
 				globale</p>
@@ -68,11 +68,19 @@
 			</div>
 		</div>
 
-		<!-- <div>
-			Trainer: <input disabled type="text" th:field="${trainer.cognome}" />
-			<div> -->
-		
 		<div>
+			Trainer: <select th:field="*{trainer}">
+				<th:block th:each="trainer : ${trainers} ">
+					<option th:text="${trainer.nome} + ' ' + ${trainer.cognome} "
+						th:value="${trainer.id}">
+				</th:block>
+			</select>
+			<div>
+				<span th:if="${#fields.hasErrors('trainer')}" th:errors="*{trainer}"></span>
+			</div>
+		</div>
+		
+		<!-- <div>
 			Sala: <select th:field="*{sala}">
 				<th:block th:each="sala : ${sale} ">
 					<option th:text="${sala.nome}"
@@ -82,7 +90,7 @@
 			<div>
 				<span th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></span>
 			</div>
-		</div>
+		</div> -->
 
 		<div>
 			<button type="submit" />

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Admin: modifica sala</title>
+</head>
+<body>
+	
+	
+  
+		<nav>
+			<h1>Palestra MDPL</h1>
+			<div >
+				<ul>
+					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}">ADMIN </a></strong></li>
+					<li><strong><a th:href="@{/admin/trainers}">TRAINER </a></strong></li>
+					<li><strong><a th:href="@{/admin/corsi}">CORSI </a></strong></li>
+					<li><strong><a th:href="@{/admin/sale}">SALE </a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+		
+		<h4>Modifica Sala</h4>
+	<form th:action="@{'/admin/updateSala' + '/' + ${sala.id}}" method="POST" th:object="${sala}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
+				globale</p>
+		</div>
+		<div>
+			Nome: <input type="text" th:field="*{nome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		</div>
+		<div>
+			Capienza: <input type="number" th:field="*{capienza}"  />
+			<div>
+				<span th:if="${#fields.hasErrors('capienza')}" th:errors="*{capienza}"></span>
+			</div>
+
+		</div>
+		
+		<div>
+			<button type="submit" />
+			Conferma
+		</div>
+	</form>
+  	
+</body>
+</html>

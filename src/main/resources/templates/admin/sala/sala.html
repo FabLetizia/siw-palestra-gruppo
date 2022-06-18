@@ -43,18 +43,16 @@
 				<li th:each="corso : ${sala.corsi}">
 				<strong> <span th:text = "${corso.nome} + ', ' + ${corso.giorno} + ' ' 
 				+ ${corso.oraInizio} + '-' + ${corso.oraFine}"> </span> </strong>
-				
-				<!--	<strong><a
-						th:href="@{'/admin/chef' + '/buffet' + '/' + ${buffet.id}}"
-						th:text="${buffet.nome}"> Nome buffet</a> </strong> 
-				<form th:action="@{'/admin/chef' + '/cancellaBuffet' + '/' + ${buffet.id}}" 
-							method="POST"><button> Cancella </button>
-				</form>    -->
-				
+				<form th:action="@{/admin/cancellaCorsoDaSala/{id1}/{id2}(id1=${sala.id}, id2=${corso.id})}"
+				method="POST">
+				<button> Cancella </button>	 
+			  </form>
 				</li>
-			</ul>		 
-			
-			
+			</ul>	
+
+			<div>
+		      <a th:href="@{/admin/corsoFormPerSala/{id}(id=${sala.id})}" class="btn btn-info"> + AGGIUNGI CORSO A SALA </a>
+	    </div>
 
   	
 </body>

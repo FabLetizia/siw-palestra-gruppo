@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Inserimento corso</title>
+  <title>Admin: modifica corso</title>
 </head>
 <body>
 	
@@ -23,8 +23,8 @@
 			</div>
 		</nav>
 		
-		<h4>Aggiungi Corso</h4>
-	<form th:action="@{'/admin/addCorsoPerTrainer/' + ${trainer.id}}" method="POST" th:object="${corso}">
+		<h4>Modifica Corso</h4>
+	<form th:action="@{'/admin' + '/aggiornaCorso' + '/' + ${corso.id}}" method="POST" th:object="${corso}">
 		<div th:if="${#fields.hasGlobalErrors()}">
 				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
 				globale</p>
@@ -35,23 +35,20 @@
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 			</div>
 		</div>
-
 		<div>
-			Descrizione: <input type="text" th:field="*{descrizione}" />
+			Descrizione: <input type="text" th:field="*{descrizione}"  />
 			<div>
-				<span th:if="${#fields.hasErrors('descrizione')}"
-					th:errors="*{descrizione}"></span>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
+
 		</div>
-		
 		<div>
 			Giorno: <input type="text" th:field="*{giorno}" />
 			<div>
-				<span th:if="${#fields.hasErrors('giorno')}"
-					th:errors="*{giorno}"></span>
+				<span th:if="${#fields.hasErrors('giorno')}" th:errors="*{giorno}"></span>
 			</div>
+
 		</div>
-		
 		<div>
 			Ora inizio: <input type="datetime" th:field="*{oraInizio}" />
 			<div>
@@ -67,10 +64,6 @@
 					th:errors="*{oraFine}"></span>
 			</div>
 		</div>
-
-		<!-- <div>
-			Trainer: <input disabled type="text" th:field="${trainer.cognome}" />
-			<div> -->
 		
 		<div>
 			Sala: <select th:field="*{sala}">
