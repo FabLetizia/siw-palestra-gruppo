@@ -131,6 +131,15 @@ public class CorsoController {
 		return "admin/corso/corsoFormPerSala.html";
 	}
 	
+	@PostMapping("/admin/cancellaCorsoDaSala/{id1}/{id2}")
+	  public String removeCorsoDaSala(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2, Model model) {
+		  salaService.findById(id1).getCorsi().remove(corsoService.findById(id2));
+		  corsoService.findById(id2).setSala(null);
+		  salaService.updateSala(salaService.findById(id1));
+		  corsoService.updateCorso(corsoService.findById(id2));
+		  return "redirect:/admin/sala/"+id1;
+	  }
+	
 	@GetMapping("/admin/modificaCorso/{id}")
 	public String getModificaCorso(@PathVariable("id") Long id, Model model) {
 		Corso corso = this.corsoService.findById(id);
