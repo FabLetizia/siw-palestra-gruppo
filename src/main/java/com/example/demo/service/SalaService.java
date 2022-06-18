@@ -50,4 +50,9 @@ public class SalaService {
 			c.setSala(null);
 		}
 	}
+
+	public void updateSala(Sala sala) {
+		this.save(sala);	
+	}
+	
 }

@@ -91,7 +91,4 @@ public class TrainerController {
 		return "admin/trainer/modificaTrainer.html";
 	}
 	
-	
-	
-	
 }

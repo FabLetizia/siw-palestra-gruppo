@@ -66,29 +66,27 @@ public class SalaController {
 		return "redirect:/admin/sale";
 	}
 	
-//	@GetMapping("/admin/modificaTrainer/{id}")
-//	public String getModificaTrainer(@PathVariable("id") Long id, Model model) {
-//		Trainer trainer = this.trainerService.findById(id);
-//		model.addAttribute("trainer", trainer);
-//		return "admin/trainer/modificaTrainer.html";
-//	}
-//	
-//	@PostMapping("/admin/trainer/modifica/{id}")
-//	public String updateTrainer(@Valid @ModelAttribute("trainer") Trainer trainer, @PathVariable("id") Long id, BindingResult bindingResults, Model model) {
-//		this.trainerValidator.validate(trainer, bindingResults);
-//		Trainer oldTrainer = this.trainerService.findById(id);
-//		
-//		if(!bindingResults.hasErrors()) {
-//			oldTrainer.setNome(trainer.getNome());
-//			oldTrainer.setCognome(trainer.getCognome());
-//			oldTrainer.setNazionalita(trainer.getNazionalita());
-//			oldTrainer.setEta(trainer.getEta());
-//			
-//			trainerService.save(oldTrainer);
-//			model.addAttribute("trainers", trainerService.findAll());
-//			return "admin/trainer/trainers.html";
-//		}
-//		model.addAttribute("trainer", oldTrainer);
-//		return "admin/trainer/modificaTrainer.html";
-//	}
+	@GetMapping("/admin/modificaSala/{id}")
+	public String getModificaSala(@PathVariable("id") Long id, Model model) {
+		Sala sala = this.salaService.findById(id);
+		model.addAttribute("sala", sala);
+		return "admin/sala/modificaSala.html";
+	}
+	
+	@PostMapping("/admin/updateSala/{id}")
+	public String updateSala(@Valid @ModelAttribute("sala") Sala sala, @PathVariable("id") Long id, BindingResult bindingResults, Model model) {
+		Sala oldSala = this.salaService.findById(id);
+		
+		if(!bindingResults.hasErrors()) {
+			oldSala.setNome(sala.getNome());
+			oldSala.setCapienza(sala.getCapienza());
+			
+			salaService.updateSala(oldSala);
+			model.addAttribute("sala", oldSala);
+			return "redirect:/admin/sale";
+		}
+		else 
+			return "admin/sala/modificaSala.html";
+	}
+
 }
