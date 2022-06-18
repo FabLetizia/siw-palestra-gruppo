@@ -89,7 +89,7 @@ public class CorsoController {
 	
 	@GetMapping("/admin/corsoFormPerTrainer/{id}")
 	public String getCorsoFormPerTrainer(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("corso", new Corso(trainerService.findById(id)));
+		model.addAttribute("corso", new Corso());
 		model.addAttribute("trainer", trainerService.findById(id));
 		model.addAttribute("sale", salaService.findAll());
 		return "admin/corso/corsoFormPerTrainer.html";
@@ -97,6 +97,7 @@ public class CorsoController {
 	
 	@PostMapping("/admin/addCorsoPerTrainer/{id}")
 	public String addCorsoPerTrainer(@PathVariable("id") Long id, @Valid @ModelAttribute("corso") Corso corso, BindingResult bindingResults, Model model) {
+		corso.setTrainer(trainerService.findById(id));
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {

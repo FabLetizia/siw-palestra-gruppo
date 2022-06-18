@@ -24,5 +24,10 @@ public class CorsoValidator implements Validator {
 		if(this.cs.alreadyExists((Corso) target)) {
 			errors.reject("corso.duplicato");
 		}
+		
+		if(this.cs.hasNullTrainer((Corso) target)) {
+			errors.reject("corso.trainernull");
+		}
+		
 	}
 }

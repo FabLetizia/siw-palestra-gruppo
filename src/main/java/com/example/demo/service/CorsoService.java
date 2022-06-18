@@ -47,4 +47,8 @@ public class CorsoService {
 	public boolean hasSalaNull(Corso corso) {
 		return corso.getSala() == null;
 	}
+
+	public boolean hasNullTrainer(Corso corso) {
+		return corso.getTrainer()==null;
+	}
 }
