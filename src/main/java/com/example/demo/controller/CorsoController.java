@@ -109,6 +109,28 @@ public class CorsoController {
 		return "admin/corso/corsoFormPerTrainer.html";
 	}	
 	
+	@GetMapping("/admin/corsoFormPerSala/{id}")
+	public String getCorsoFormPerSala(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("corso", new Corso());
+		model.addAttribute("sala", salaService.findById(id));
+		model.addAttribute("trainers", trainerService.findAll());
+		return "admin/corso/corsoFormPerSala.html";
+	}
+	
+	@PostMapping("/admin/addCorsoPerSala/{id}")
+	public String addCorsoPerSala(@PathVariable("id") Long id, @Valid @ModelAttribute("corso") Corso corso, BindingResult bindingResults, Model model) {
+		corso.setSala(salaService.findById(id));
+		this.corsoValidator.validate(corso, bindingResults);
+		
+		if(!bindingResults.hasErrors()) {
+			corsoService.save(corso);
+			return "redirect:/admin/sala/"+id;
+		}
+		model.addAttribute("sala", salaService.findById(id));
+		model.addAttribute("trainers", trainerService.findAll());
+		return "admin/corso/corsoFormPerSala.html";
+	}
+	
 	@GetMapping("/admin/modificaCorso/{id}")
 	public String getModificaCorso(@PathVariable("id") Long id, Model model) {
 		Corso corso = this.corsoService.findById(id);
