@@ -34,7 +34,7 @@ public class Corso {
 	@NotNull
 	private LocalTime oraFine;
 	
-	//@NotNull
+	//@NotNull --> lo facciamo controllare a CorsoValidator
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	private Trainer trainer;
 

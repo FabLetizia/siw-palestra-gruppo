@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Admin: modifica corso</title>
+</head>
+<body>
+	
+	
+  
+		<nav>
+			<h1>Palestra MDPL</h1>
+			<div >
+				<ul>
+					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}">ADMIN </a></strong></li>
+					<li><strong><a th:href="@{/admin/trainers}">TRAINER </a></strong></li>
+					<li><strong><a th:href="@{/admin/corsi}">CORSI </a></strong></li>
+					<li><strong><a th:href="@{/admin/sale}">SALE </a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+		
+		<h4>Modifica Corso</h4>
+	<form th:action="@{'/admin' + '/aggiornaCorso' + '/' + ${corso.id}}" method="POST" th:object="${corso}">
+		<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
+				globale</p>
+		</div>
+		<div>
+			Nome: <input type="text" th:field="*{nome}" />
+			<div>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+		</div>
+		<div>
+			Descrizione: <input type="text" th:field="*{descrizione}"  />
+			<div>
+				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+			</div>
+
+		</div>
+		<div>
+			Giorno: <input type="text" th:field="*{giorno}" />
+			<div>
+				<span th:if="${#fields.hasErrors('giorno')}" th:errors="*{giorno}"></span>
+			</div>
+
+		</div>
+		<div>
+			Ora inizio: <input type="datetime" th:field="*{oraInizio}" />
+			<div>
+				<span th:if="${#fields.hasErrors('oraInizio')}"
+					th:errors="*{oraInizio}"></span>
+			</div>
+		</div>
+
+		<div>
+			Ora fine: <input type="datetime" th:field="*{oraFine}" />
+			<div>
+				<span th:if="${#fields.hasErrors('oraFine')}"
+					th:errors="*{oraFine}"></span>
+			</div>
+		</div>
+		
+		<div>
+			Sala: <select th:field="*{sala}">
+				<th:block th:each="sala : ${sale} ">
+					<option th:text="${sala.nome}"
+						th:value="${sala.id}">
+				</th:block>
+			</select>
+			<div>
+				<span th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></span>
+			</div>
+		</div>
+
+		<div>
+			<button type="submit" />
+			Conferma
+		</div>
+	</form>
+  	
+</body>
+</html>

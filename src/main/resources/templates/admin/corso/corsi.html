@@ -26,15 +26,15 @@
 		<h4>Elenco Corsi</h4>
   		<ul>
 			<li th:each="corso : ${corsi}">
-			<form th:action="@{'/admin/cancellaCorso' + '/' + ${corso.id}}" 
+				<a	th:href="@{'/admin/corso' + '/' + ${corso.id}}"
+				th:text="${corso.nome}">Cross fit</a> 
+			  <form th:action="@{'/admin/cancellaCorso' + '/' + ${corso.id}}" 
 				method="POST">
-			<a	th:href="@{'/admin/corso' + '/' + ${corso.id}}"
-				th:text="${corso.nome}">Cross fit</a> 	
-				<button> Cancella </button>
-			</form>
-			<!--  <a th:href="@{'/admin/modificaCorso' + '/' + ${corso.id}}">
+				<button> Cancella </button>	 
+			  </form>
+			  <a th:href="@{'/admin/modificaCorso' + '/' + ${corso.id}}">
 					<button> Modifica</button>
-			</a>  -->
+			  </a>
 			</li>
 		</ul>
 			<div>

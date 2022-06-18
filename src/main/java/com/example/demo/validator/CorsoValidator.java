@@ -34,4 +34,11 @@ public class CorsoValidator implements Validator {
 		}
 		
 	}
+	
+	public void validateDellaSala(Object target, Errors errors) {
+		if(this.cs.SalaOccupata((Corso) target)) {
+			errors.reject("corso.insalaoccupata");
+		}
+		
+	}
 }
