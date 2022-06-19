@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -34,6 +35,9 @@ public class Corso {
 	@NotNull
 	private LocalTime oraFine;
 	
+	@Min(0)
+	private Integer numeroPosti;
+	
 	//@NotNull --> lo facciamo controllare a CorsoValidator
 	@ManyToOne(cascade = {CascadeType.MERGE})
 	private Trainer trainer;
@@ -43,7 +47,7 @@ public class Corso {
 	
 	/* COSTRUTTORI */
 	public Corso() {
-
+		
 	}
 	
 	public Corso(Trainer t) {
@@ -114,4 +118,14 @@ public class Corso {
 	public void setOraFine(LocalTime oraFine) {
 		this.oraFine = oraFine;
 	}
+
+	public Integer getNumeroPosti() {
+		return numeroPosti;
+	}
+
+	public void setNumeroPosti(Integer numeroPosti) {
+		this.numeroPosti = numeroPosti;
+	}
+	
+	
 }

@@ -27,7 +27,7 @@
 		
 		<h4>Descrizione Corso</h4>
 		
-			<strong><span>Nome Corso:</span></strong> <span th:text="' ' + ${corso.nome}">nome</span>
+			<strong><span>Nome corso:</span></strong> <span th:text="' ' + ${corso.nome}">nome</span>
 			<div>
 			<strong><span>Trainer:</span></strong>	<span th:text="' ' + ${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span> 
 			</div>
@@ -44,6 +44,9 @@
 				<strong><span>Descrizione:</span></strong><span th:text="' ' + ${corso.descrizione}">descrizione</span>
 			</div>
 			
+			<div>
+				<strong><span>Posti disponibili:</span></strong><span th:text="' ' + ${corso.numeroPosti}">descrizione</span>
+			</div>
 		</div>
 		</div>
   	
