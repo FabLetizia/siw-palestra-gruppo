@@ -2,15 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href = "/css/admin.css"/>
   <meta name="viewport" content="width=device-width">
   <title>Admin</title>
 </head>
-<body>
-	
+<body class = "header-body">
 	
   
-		<nav>
-			<h1>Palestra MDPL</h1>
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -22,6 +22,17 @@
 				
 			</div>
 		</nav>
+		
+		<div class="text-box">
+		<div class="elenco-pagina">
+		<p>
+		Bentornato amministratore, in questa sezione del sito potrai gestire tutte le informazioni relative ai vari buffet.
+		Inizia a modificare/cancellare buffet, chef, piatti e ingredienti utilizzando la barra di navigazione in alto!
+		Cliccando "Logout", potrai visualizzare come appariranno le modifiche da te effettuate nella sezione del sito visibile da ogni utente.
+		</p>
+		
+		</div>
+		</div>
   
   	
 </body>

@@ -2,15 +2,14 @@
 <html>
 <head>
   <meta charset="utf-8">
+    <link rel="stylesheet" href = "/css/admin.css"/>
   <meta name="viewport" content="width=device-width">
   <title>Inserimento Trainer</title>
 </head>
-<body>
-	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+<body class = "header-body">
+		
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -23,6 +22,9 @@
 			</div>
 		</nav>
 		
+		
+		<div class="text-box">
+		<div class="elenco">
 		<h4>Modifica Trainer</h4>
 	<form th:action="@{'/admin/trainer' + '/modifica' + '/' + ${trainer.id}}" method="POST" th:object="${trainer}">
 		<div th:if="${#fields.hasGlobalErrors()}">
@@ -43,24 +45,26 @@
 
 		</div>
 		<div>
-			Nazionalita: <input type="text" th:field="*{nazionalita}" />
+			Nazionalità: <input type="text" th:field="*{nazionalita}" />
 			<div>
 				<span th:if="${#fields.hasErrors('nazionalita')}" th:errors="*{nazionalita}"></span>
 			</div>
 
 		</div>
 		<div>
-			Eta': <input type="number" th:field="*{eta}" />
+			Età: <input type="number" th:field="*{eta}" />
 			<div>
 				<span th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}"></span>
 			</div>
 
 		</div>
 		<div>
-			<button type="submit" />
+			<button class = "conferma" type="submit" />
 			Conferma
 		</div>
 	</form>
+	</div>
+	</div>
   	
 </body>
 </html>
