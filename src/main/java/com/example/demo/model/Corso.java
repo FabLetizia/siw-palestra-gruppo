@@ -127,5 +127,9 @@ public class Corso {
 		this.numeroPosti = numeroPosti;
 	}
 	
+	public void decrementaNumeroPosti() {
+		this.numeroPosti--;
+	}
+	
 	
 }

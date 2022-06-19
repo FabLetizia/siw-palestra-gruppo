@@ -45,7 +45,7 @@
 				<strong><span>Posti disponibili:</span></strong><span th:text="' ' + ${corso.numeroPosti} ">descrizione</span>
 			</div>
 			
-			<a href="/">
+			<a th:href="@{'/user/personaForm' + '/' + ${corso.id}}">
 				<button> Iscriviti </button>
 			</a>
 			
