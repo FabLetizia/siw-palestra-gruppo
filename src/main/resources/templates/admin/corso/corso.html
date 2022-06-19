@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href = "/css/admin.css"/>
   <title>Corso</title>
 </head>
-<body>
+<body class = "header-body">
 	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -23,25 +22,30 @@
 			</div>
 		</nav>
 		
+		<div class="text-box">
+		<div class="elenco">
+		
 		<h4>Descrizione Corso</h4>
 		
-			<strong><span th:text="${corso.nome}">nome</span>
-			<span> svolto dal trainer </span>
-			<span th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span></strong> 
+			<strong><span>Nome Corso:</span></strong> <span th:text="' ' + ${corso.nome}">nome</span>
 			<div>
-				<strong> <span>Giorno:</span><span th:text="${corso.giorno} + ', ' + 
+			<strong><span>Trainer:</span></strong>	<span th:text="' ' + ${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span> 
+			</div>
+			<div>
+				<strong> <span>Giorno:</span></strong><span th:text="' ' + ${corso.giorno} + ', ' + 
 				${corso.oraInizio} + '-' + ${corso.oraFine}">
-				giorno e ora</span></strong>
+				giorno e ora</span>
 			</div>
 			<div>
-				<strong> <span>Sala:</span><span th:text="${sala}">
-				sala</span></strong>
+				<strong> <span>Sala:</span></strong><span th:text="' ' + ${sala}">
+				sala</span>
 			</div>
 			<div>
-				<strong><span>Descrizione:</span><span th:text="${corso.descrizione}">descrizione</span></strong>
+				<strong><span>Descrizione:</span></strong><span th:text="' ' + ${corso.descrizione}">descrizione</span>
 			</div>
 			
-
+		</div>
+		</div>
   	
 </body>
 </html>

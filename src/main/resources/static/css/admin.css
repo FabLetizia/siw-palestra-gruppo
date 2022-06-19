@@ -163,6 +163,14 @@ nav img {
 	padding: 3px;
 }
 
+.elenco select {
+	font-size: 15px;
+	border-color: purple;
+	border-radius: 5px;
+	border-width: 3px;
+	padding: 3px;
+}
+
 button.cancella:hover {
 	border-radius: 6px;
 	background-color: red;
