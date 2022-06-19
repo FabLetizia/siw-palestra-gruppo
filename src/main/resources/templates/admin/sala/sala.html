@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href = "/css/admin.css"/>
   <title>Sala</title>
 </head>
-<body>
+<body class = "header-body">
 	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -22,7 +21,10 @@
 				
 			</div>
 		</nav>
+  
 		
+		<div class="text-box">
+		<div class="elenco">
 		<h4>Descrizione Sala</h4>
 			<div>
 				<strong>
@@ -37,7 +39,7 @@
 			</div>
 			
 			<div>
-				<strong>Elenco Corsi:</strong>
+				<h1>Elenco Corsi:</h1>
 			</div>
 			<ul>
 				<li th:each="corso : ${sala.corsi}">
@@ -45,13 +47,15 @@
 				+ ${corso.oraInizio} + '-' + ${corso.oraFine}"> </span> </strong>
 				<form th:action="@{/admin/cancellaCorsoDaSala/{id1}/{id2}(id1=${sala.id}, id2=${corso.id})}"
 				method="POST">
-				<button> Cancella </button>	 
+				<button class="cancella"> Cancella </button>	 
 			  </form>
 				</li>
 			</ul>	
 
 			<div>
 		      <a th:href="@{/admin/corsoFormPerSala/{id}(id=${sala.id})}" class="btn btn-info"> + AGGIUNGI CORSO A SALA </a>
+	    </div>
+	    </div>
 	    </div>
 
   	
