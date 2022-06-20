@@ -29,8 +29,8 @@ public class PersonaController {
 	@Autowired
 	private PersonaValidator personaValidator;
 	
-	@GetMapping("/user/personaForm/{id}") //id del corso
-	public String getPersona(@PathVariable("id") Long id, Model model) {
+	@GetMapping("/user/personaForm/{id}")
+	public String getPersonaForm(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("persona", new Persona());
 		model.addAttribute("corso", corsoService.findById(id));
 		return "user/personaForm.html";
@@ -38,21 +38,22 @@ public class PersonaController {
 	
 	@PostMapping("/user/addPersonaACorso/{id}")
 	public String addPersonaPerCorso(@PathVariable("id") Long id, @Valid @ModelAttribute("persona") Persona persona, BindingResult bindingResults, Model model) {
-		persona.setCorso(corsoService.findById(id));
-		this.personaValidator.validate(persona, bindingResults);
+		Corso corso = corsoService.findById(id);
+		persona.getCorsi().add(corso);
+//		this.personaValidator.validate(persona, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
-			Corso corso = corsoService.findById(id);
 			corso.decrementaNumeroPosti();
 			corsoService.save(corso);
-			personaService.save(persona);
-			model.addAttribute("corso", corso);
-			String nomeSala = "ancora nessuna sala";
-			if(corsoService.hasSalaNull(corso))
-				model.addAttribute("sala", nomeSala);
+			if(!(personaService.personaGiàInserita(persona))) {
+				Persona p = personaService.findByEmail(persona.getEmail());
+				p.getCorsi().add(corso);
+				personaService.save(p);
+			}
 			else
-				model.addAttribute("sala", corso.getSala().getNome());
-			return "user/userCorso.html";
+				personaService.save(persona);
+			
+			return "redirect:/user/corso/"+id;
 		}
 		model.addAttribute("persona", new Persona());
 		model.addAttribute("corso", corsoService.findById(id));

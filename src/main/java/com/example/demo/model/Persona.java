@@ -1,10 +1,12 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -24,13 +26,15 @@ public class Persona {
 	@NotBlank
 	private String email;
 	
-	@OneToOne
-	private Corso corso;
+	@ManyToMany
+	private List<Corso> corsi;
 	
+	/* COSTRUTTORE */
 	public Persona() {
 		
 	}
 
+	/* GETTERS E SETTERS */
 	public Long getId() {
 		return id;
 	}
@@ -63,15 +67,12 @@ public class Persona {
 		this.email = email;
 	}
 
-	public Corso getCorso() {
-		return corso;
+	public List<Corso> getCorsi() {
+		return corsi;
 	}
 
-	public void setCorso(Corso corso) {
-		this.corso = corso;
+	public void setCorsi(List<Corso> corsi) {
+		this.corsi = corsi;
 	}
-
-	
-	
 	
 }

@@ -37,9 +37,9 @@ public class PersonaService {
 //				trainer.getCognome(), trainer.getNazionalita(),trainer.getEta());
 //	}
 	
-	public boolean alreadyExists(Persona persona) {
-		return this.personaRepository.existsByEmailAndCorso(persona.getEmail(), persona.getCorso());
-	}
+//	public boolean alreadyExists(Persona persona) {
+//		return this.personaRepository.existsByEmailAndCorso(persona.getEmail(), persona.getCorso());
+//	}
 	
 	public List<Persona> findAll(){
 		List<Persona> persone= new ArrayList<>();
@@ -47,5 +47,14 @@ public class PersonaService {
 			persone.add(p);
 		}
 		return persone;
+	}
+
+	public boolean personaGiàInserita(Persona persona) {
+		return this.personaRepository.existsByEmail(persona.getEmail());
+		
+	}
+
+	public Persona findByEmail(String email) {
+		return this.personaRepository.findByEmail(email);
 	}
 }

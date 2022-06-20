@@ -1,12 +1,14 @@
 package com.example.demo.model;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -43,7 +45,10 @@ public class Corso {
 	private Trainer trainer;
 
 	@ManyToOne
-	private Sala sala; //FIXME forse serve merge
+	private Sala sala;
+	
+	@ManyToMany(mappedBy="corsi", cascade=CascadeType.MERGE)
+	private List<Persona> persone;
 	
 	/* COSTRUTTORI */
 	public Corso() {
@@ -130,6 +135,13 @@ public class Corso {
 	public void decrementaNumeroPosti() {
 		this.numeroPosti--;
 	}
-	
+
+	public List<Persona> getPersone() {
+		return persone;
+	}
+
+	public void setPersone(List<Persona> persone) {
+		this.persone = persone;
+	}
 	
 }
