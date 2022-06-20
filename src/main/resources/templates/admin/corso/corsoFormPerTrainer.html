@@ -76,10 +76,10 @@
 		
 		<div>
 			Sala: <select th:field="*{sala}">
-				<th:block th:each="sala : ${sale} ">
-					<option th:text="${sala.nome}"
+				
+					<option th:each="sala : ${sale}" th:text="${sala.nome}"
 						th:value="${sala.id}">
-				</th:block>
+				
 			</select>
 			<div>
 				<span th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}"></span>

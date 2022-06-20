@@ -70,10 +70,10 @@
 
 		<div>
 			Trainer: <select th:field="*{trainer}">
-				<th:block th:each="trainer : ${trainers} ">
-					<option th:text="${trainer.nome} + ' ' + ${trainer.cognome} "
+		
+					<option th:each="trainer : ${trainers}" th:text="${trainer.nome} + ' ' + ${trainer.cognome} "
 						th:value="${trainer.id}">
-				</th:block>
+				
 			</select>
 			<div>
 				<span th:if="${#fields.hasErrors('trainer')}" th:errors="*{trainer}"></span>
