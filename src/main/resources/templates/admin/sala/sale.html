@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href = "/css/admin.css"/>
   <title>Sale</title>
 </head>
-<body>
+<body class = "header-body">
 	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -21,7 +20,10 @@
 				</ul>
 				
 			</div>
-		</nav>
+		</nav>	
+		
+		<div class="text-box">
+		<div class="elenco">
 		
 		<h4>Elenco Sale</h4>
   		<ul>
@@ -30,16 +32,19 @@
 				method="POST">
 			<a	th:href="@{'/admin/sala' + '/' + ${sala.id}}"
 				th:text="${sala.nome}">Sala 1</a> 	
-				<button> Cancella </button>
+				<button class="cancella"> Cancella </button>
 			</form>
 			<a th:href="@{'/admin/modificaSala' + '/' + ${sala.id}}">
-					<button> Modifica</button>
+					<button class="modifica"> Modifica</button>
 			</a> 
 			</li>
 		</ul>
 			<div>
 				<a th:href="@{/admin/salaForm}" >Aggiungi nuova Sala</a>
 			</div>
+			
+		</div>
+		</div>
   	
 </body>
 </html>

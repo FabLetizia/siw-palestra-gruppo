@@ -3,25 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href = "/css/admin.css"/>
   <title>Inserimento sala</title>
 </head>
-<body>
+<body class = "header-body">
 	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
 					<li><strong><a th:href="@{/admin/admin}">ADMIN </a></strong></li>
 					<li><strong><a th:href="@{/admin/trainers}">TRAINER </a></strong></li>
 					<li><strong><a th:href="@{/admin/corsi}">CORSI </a></strong></li>
-					<li><strong><a th:href = "@{/admin/sale}">SALE </a></strong></li>
+					<li><strong><a th:href="@{/admin/sale}">SALE </a></strong></li>
 				</ul>
 				
 			</div>
 		</nav>
+		
+		<div class="text-box">
+		<div class="elenco">
 		
 		<h4>Aggiungi Sala</h4>
 	<form th:action="@{/admin/sala}" method="POST" th:object="${sala}">
@@ -45,10 +47,13 @@
 		</div>
 
 		<div>
-			<button type="submit" />
+			<button class="conferma" type="submit" />
 			Conferma
 		</div>
 	</form>
+	
+	</div>
+	</div>
   	
 </body>
 </html>

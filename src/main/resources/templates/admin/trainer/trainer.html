@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href = "/css/admin.css"/>
   <title>Trainer</title>
 </head>
-<body>
-	
-	
-  
-		<nav>
-			<h1>Palestra MDPL</h1>
+<body class = "header-body">
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
 			<div >
 				<ul>
 					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
@@ -22,7 +20,8 @@
 				
 			</div>
 		</nav>
-		
+		<div class="text-box">
+		<div class="elenco">
 		<h4>Trainer</h4>
 			<div>
 			<strong>
@@ -32,7 +31,7 @@
 			<span th:text="'( ' + ${trainer.nazionalita} + ' )'">italia</span>
 			</strong>
 			<div>
-				<strong>Elenco Corsi:</strong>
+				<h1>Elenco Corsi:</h1>
 			</div>
 			<ul>
 				<li th:each="corso : ${trainer.corsi}">
@@ -40,7 +39,7 @@
 				+ ${corso.oraInizio} + '-' + ${corso.oraFine}
 				" > </span> </strong>
 				<form th:action="@{/admin/cancellaCorsoDaTrainer/{id1}/{id2}(id1=${corso.id}, id2=${trainer.id})}" 
-							method="POST"><button> Cancella </button>
+							method="POST"><button class= "cancella"> Cancella </button>
 				</form>    
 				
 				</li>
@@ -50,7 +49,8 @@
 		      <a th:href="@{/admin/corsoFormPerTrainer/{id}(id=${trainer.id})}" class="btn btn-info"> + AGGIUNGI CORSO A TRAINER </a>
 	    </div>
 			</div>
-		
+		</div>
+		</div>
   	
 </body>
 </html>
