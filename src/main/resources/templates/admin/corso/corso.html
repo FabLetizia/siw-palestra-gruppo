@@ -27,25 +27,25 @@
 		
 		<h4>Descrizione Corso</h4>
 		
-			<strong><span>Nome corso:</span></strong> <span th:text="' ' + ${corso.nome}">nome</span>
+			<strong><span class="def">Nome corso:</span></strong> <span th:text="' ' + ${corso.nome}">nome</span>
 			<div>
-			<strong><span>Trainer:</span></strong>	<span th:text="' ' + ${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span> 
+			<strong><span class="def">Trainer:</span></strong>	<span th:text="' ' + ${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}"></span> 
 			</div>
 			<div>
-				<strong> <span>Giorno:</span></strong><span th:text="' ' + ${corso.giorno} + ', ' + 
+				<strong> <span class="def">Giorno:</span></strong><span th:text="' ' + ${corso.giorno} + ', ' + 
 				${corso.oraInizio} + '-' + ${corso.oraFine}">
 				giorno e ora</span>
 			</div>
 			<div>
-				<strong> <span>Sala:</span></strong><span th:text="' ' + ${sala}">
+				<strong> <span class="def">Sala:</span></strong><span th:text="' ' + ${sala}">
 				sala</span>
 			</div>
 			<div>
-				<strong><span>Descrizione:</span></strong><span th:text="' ' + ${corso.descrizione}">descrizione</span>
+				<strong><span class="def">Descrizione:</span></strong><span th:text="' ' + ${corso.descrizione}">descrizione</span>
 			</div>
 			
 			<div>
-				<strong><span>Posti disponibili:</span></strong><span th:text="' ' + ${corso.numeroPosti}">descrizione</span>
+				<strong><span class="def">Posti disponibili:</span></strong><span th:text="' ' + ${corso.numeroPosti}">descrizione</span>
 			</div>
 		</div>
 		</div>
