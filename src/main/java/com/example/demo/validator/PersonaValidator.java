@@ -23,9 +23,9 @@ public class PersonaValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		if(this.ps.alreadyExists((Persona) target)) {
-			errors.reject("persona.esistente");
-		}
+//		if(this.ps.alreadyExists((Persona) target)) {
+//			errors.reject("persona.esistente");
+//		}
 	}
 
 }
