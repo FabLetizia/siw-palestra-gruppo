@@ -57,4 +57,13 @@ public class PersonaService {
 	public Persona findByEmail(String email) {
 		return this.personaRepository.findByEmail(email);
 	}
+	
+	public boolean corsoEsistentePerPersona(Persona persona, Corso corso) {
+		for(Corso c: persona.getCorsi()) {
+			if(c == corso) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

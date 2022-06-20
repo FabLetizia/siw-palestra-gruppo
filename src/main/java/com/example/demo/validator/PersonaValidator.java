@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import com.example.demo.model.Corso;
 import com.example.demo.model.Persona;
-import com.example.demo.model.Trainer;
 import com.example.demo.service.PersonaService;
 
 @Component
@@ -23,9 +23,9 @@ public class PersonaValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-//		if(this.ps.alreadyExists((Persona) target)) {
-//			errors.reject("persona.esistente");
-//		}
+			errors.reject("persona.esistente");
 	}
+	
+	
 
 }

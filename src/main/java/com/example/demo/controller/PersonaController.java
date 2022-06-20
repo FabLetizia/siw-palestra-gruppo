@@ -39,19 +39,21 @@ public class PersonaController {
 	@PostMapping("/user/addPersonaACorso/{id}")
 	public String addPersonaPerCorso(@PathVariable("id") Long id, @Valid @ModelAttribute("persona") Persona persona, BindingResult bindingResults, Model model) {
 		Corso corso = corsoService.findById(id);
-		persona.getCorsi().add(corso);
-//		this.personaValidator.validate(persona, bindingResults);
+		Persona p = persona;
+		if((personaService.personaGiàInserita(persona))) {
+			p = personaService.findByEmail(persona.getEmail());
+		}
+//		this.personaValidator.validateCorso(persona, corso, bindingResults);
+		
+		if(this.personaService.corsoEsistentePerPersona(p, corso)){
+			this.personaValidator.validate(p, bindingResults);
+		}
 		
 		if(!bindingResults.hasErrors()) {
+			p.getCorsi().add(corso);
 			corso.decrementaNumeroPosti();
 			corsoService.save(corso);
-			if(!(personaService.personaGiàInserita(persona))) {
-				Persona p = personaService.findByEmail(persona.getEmail());
-				p.getCorsi().add(corso);
-				personaService.save(p);
-			}
-			else
-				personaService.save(persona);
+			personaService.save(p);
 			
 			return "redirect:/user/corso/"+id;
 		}

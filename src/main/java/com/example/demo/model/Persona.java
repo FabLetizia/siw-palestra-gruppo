@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Persona {
 	
 	/* COSTRUTTORE */
 	public Persona() {
-		
+		this.corsi = new ArrayList<>();
 	}
 
 	/* GETTERS E SETTERS */
