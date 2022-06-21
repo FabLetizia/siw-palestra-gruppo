@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Corso;
 import com.example.demo.model.Persona;
-import com.example.demo.model.Trainer;
 import com.example.demo.repository.PersonaRepository;
 
 @Service
