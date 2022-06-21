@@ -4,14 +4,6 @@
 	font-family: 'Charis SIL', serif;
 }
 
-.header {
-	min-height: 100vh;
-	width: 100%;
-	background-size: cover;
-	background-position: relative;
-	background-attachment: fixed;
-}
-
 button {
 	border-radius: 6px;
 	background-color: #00FFAB;
@@ -31,10 +23,6 @@ nav {
 	text-align: center;
 	color: #D151FF;
 	font-size: 50px;
-}
-
-nav img {
-	width: 150px;
 }
 
 .nav-links {
