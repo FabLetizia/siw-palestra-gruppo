@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.Corso;
+import com.example.demo.model.Persona;
 import com.example.demo.model.Trainer;
 import com.example.demo.service.CorsoService;
 import com.example.demo.service.TrainerService;
@@ -45,6 +46,17 @@ public class UserController {
 		return "user/userTrainer.html";
 	}
 	
+//	@GetMapping("/user/corsi/{giorno}")
+//	public String getCorsiPerGiorno(@PathVariable("giorno") String giorno, Model model){
+//		model.addAttribute("corsi", this.corsoService.findByGiorno(giorno));
+//		return "user/userCorsi.html";
+//	}
+	
+	@GetMapping("/user/corsilun")
+	public String getCorsiPerLunedi( Model model){
+		model.addAttribute("corsi", this.corsoService.findByGiorno("Lunedi"));
+		return "user/userCorsi.html";
+	}
 	
 	@GetMapping("/user/corso/{id}")
 	public String getCorso(@PathVariable("id") Long id, Model model) {
