@@ -78,12 +78,14 @@ public class CorsoController {
 
 	@PostMapping("/admin/cancellaCorso/{id}")
 	public String removeCorso(@PathVariable("id") Long id, Model model) {
+		this.corsoService.removeCorsoDaPersone(corsoService.findById(id));
 		this.corsoService.remove(id);
 		return "redirect:/admin/corsi";
 	}
 	
 	@PostMapping("/admin/cancellaCorsoDaTrainer/{id1}/{id2}")
 	public String removeCorsoDaTrainer(@PathVariable("id1") Long id1, @PathVariable("id2") Long id2, Model model) {
+		this.corsoService.removeCorsoDaPersone(corsoService.findById(id1));
 		this.corsoService.remove(id1);
 		return "redirect:/admin/trainer/"+id2;
 	}
@@ -139,6 +141,7 @@ public class CorsoController {
 		  salaService.findById(id1).getCorsi().remove(corsoService.findById(id2));
 		  corsoService.findById(id2).setSala(null);
 		  salaService.updateSala(salaService.findById(id1));
+		  corsoService.findById(id2).setNumeroPosti(0);
 		  corsoService.updateCorso(corsoService.findById(id2));
 		  return "redirect:/admin/sala/"+id1;
 	  }
@@ -163,7 +166,7 @@ public class CorsoController {
 			oldCorso.setOraInizio(corso.getOraInizio());
 			oldCorso.setOraFine(corso.getOraFine());
 			oldCorso.setSala(corso.getSala());
-			oldCorso.setNumeroPosti(corso.getSala().getCapienza());
+			oldCorso.setNumeroPosti(corso.getSala().getCapienza()-oldCorso.getPersone().size());
 			corsoService.updateCorso(oldCorso);
 			model.addAttribute("corso", oldCorso);
 			return "redirect:/admin/corsi";

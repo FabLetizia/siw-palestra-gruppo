@@ -18,6 +18,9 @@ public class SalaService {
 	@Autowired
 	private SalaRepository salaRepository;
 	
+	@Autowired
+	private CorsoService corsoService;
+	
 	@Transactional
 	public void save(Sala sala) {
 		this.salaRepository.save(sala);
@@ -53,6 +56,20 @@ public class SalaService {
 
 	public void updateSala(Sala sala) {
 		this.save(sala);	
+	}
+	
+	public void impostaNumeroPostiACorsi(Sala sala) {
+		for(Corso c: sala.getCorsi()) {
+			c.setNumeroPosti(0);
+			this.corsoService.updateCorso(c);
+		}
+	}
+	
+	public void impostaNumeroPostiACorsiUpdate(Sala sala) {
+		for(Corso c: sala.getCorsi()) {
+			c.setNumeroPosti(sala.getCapienza()-c.getPersone().size());
+			this.corsoService.updateCorso(c);
+		}
 	}
 	
 }

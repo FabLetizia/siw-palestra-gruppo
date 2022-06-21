@@ -61,6 +61,7 @@ public class SalaController {
 
 	@PostMapping("/admin/cancellaSala/{id}")
 	public String removeSala(@PathVariable("id") Long id, Model model) {
+		this.salaService.impostaNumeroPostiACorsi(this.salaService.findById(id));
 		this.salaService.removeSalaDaCorsi(id);
 		this.salaService.remove(id);
 		return "redirect:/admin/sale";
@@ -80,6 +81,7 @@ public class SalaController {
 		if(!bindingResults.hasErrors()) {
 			oldSala.setNome(sala.getNome());
 			oldSala.setCapienza(sala.getCapienza());
+			this.salaService.impostaNumeroPostiACorsiUpdate(oldSala);
 			
 			salaService.updateSala(oldSala);
 			model.addAttribute("sala", oldSala);
