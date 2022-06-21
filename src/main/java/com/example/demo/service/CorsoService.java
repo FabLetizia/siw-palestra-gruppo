@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Corso;
+import com.example.demo.model.Persona;
 import com.example.demo.repository.CorsoRepository;
 
 @Service
@@ -57,7 +58,13 @@ public class CorsoService {
 	}
 
 	public void updateCorso(Corso corso) {
-		this.save(corso);
-		
+		this.save(corso);	
+	}
+	
+	@Transactional
+	public void removeCorsoDaPersone(Corso corso) {
+		for(Persona p: corso.getPersone()) {
+			p.getCorsi().remove(corso);
+		}
 	}
 }

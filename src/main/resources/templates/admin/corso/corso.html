@@ -47,6 +47,13 @@
 			<div>
 				<strong><span class="def">Posti disponibili:</span></strong><span th:text="' ' + ${corso.numeroPosti}">descrizione</span>
 			</div>
+			<h1>Persone Iscritte al corso: </h1>
+			<ul>
+				<li th:each="persona : ${corso.persone}">
+				 <span th:text = "${persona.nome} + ' ' + ${persona.cognome} 
+				 + ' (' + ${persona.email} + ')'"> </span>
+				</li>
+			</ul>	
 		</div>
 		</div>
   	
