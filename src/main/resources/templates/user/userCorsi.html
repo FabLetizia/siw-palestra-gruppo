@@ -28,7 +28,7 @@
         </div>
     	</nav>
       <div align="center" class="titolo">
-        <h1 style="font-weight: bold; font-style: italic; margin-top: 10%; font-size: 2.6em;">I NOSTRI CORSI:</h1>
+        <h1>I NOSTRI CORSI:</h1>
       </div>
       <br>
       <!-- SCELTA GIORNO DELLA SETTIMANA -->
@@ -54,12 +54,12 @@
           <h3>Trainer:</h3><label th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}">NomeTrainer CognomeTrainer</label>
           <h3>Descrizione:</h3><label th:text="${corso.descrizione}">descrizione del corso</label>
           <h3 th:text="${corso.giorno} + ' dalle ' + ${corso.oraInizio} + ' alle ' + ${corso.oraFine}">Venerdi dalle 13.00 alle 14.00</h3>
-          <h3>Posti Disponibili: </h3><i style="color: #00FFAB; background-color: #590696; border-radius: 5px; width: 5%;" th:text="${corso.postiDisponibili}">90</i>
+          <h3>Posti Disponibili: </h3><i th:text="${corso.postiDisponibili}">90</i>
           <label>Iscriviti:</label>
           <form>
             <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="nome" placeholder="Cognome">
-            <input type="text" name="nome" placeholder="Codice Fiscale">
+            <input type="text" name="cogmnome" placeholder="Cognome">
+            <input type="email" name="email" placeholder="Email">
             <button>iscriviti</button>
           </form>
         </div>
