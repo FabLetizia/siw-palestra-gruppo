@@ -43,8 +43,7 @@ public class PersonaController {
 		if((personaService.personaGiàInserita(persona))) {
 			p = personaService.findByEmail(persona.getEmail());
 		}
-//		this.personaValidator.validateCorso(persona, corso, bindingResults);
-		
+				
 		if(this.personaService.corsoEsistentePerPersona(p, corso)){
 			this.personaValidator.validate(p, bindingResults);
 		}
@@ -57,7 +56,6 @@ public class PersonaController {
 			
 			return "redirect:/user/corso/"+id;
 		}
-		model.addAttribute("persona", new Persona());
 		model.addAttribute("corso", corsoService.findById(id));
 		return "user/personaForm.html";
 	}

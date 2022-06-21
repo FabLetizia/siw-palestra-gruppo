@@ -24,8 +24,8 @@ public class SiwPalestraApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 //		User u = new User();
-//		u.setNome("Antonio");
-//		u.setCognome("Della Porta");
+//		u.setNome("Fabio");
+//		u.setCognome("Letizia");
 //		
 //		Credentials c = new Credentials();
 //		c.setUser(u);

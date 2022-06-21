@@ -54,7 +54,7 @@
           <h3>Trainer:</h3><label th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}">NomeTrainer CognomeTrainer</label>
           <h3>Descrizione:</h3><label th:text="${corso.descrizione}">descrizione del corso</label>
           <h3 th:text="${corso.giorno} + ' dalle ' + ${corso.oraInizio} + ' alle ' + ${corso.oraFine}">Venerdi dalle 13.00 alle 14.00</h3>
-          <h3>Posti Disponibili: </h3><i th:text="${corso.postiDisponibili}">90</i>
+          <h3>Posti Disponibili: </h3><i th:text="${corso.numeroPosti}">90</i>
           <label>Iscriviti:</label>
           <form>
             <input type="text" name="nome" placeholder="Nome">
