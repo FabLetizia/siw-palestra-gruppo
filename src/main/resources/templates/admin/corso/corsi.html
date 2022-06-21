@@ -29,7 +29,8 @@
   		<ul>
 			<li th:each="corso : ${corsi}">
 				<a	th:href="@{'/admin/corso' + '/' + ${corso.id}}"
-				th:text="${corso.nome}">Cross fit</a> 
+				th:text="${corso.nome} + ', ' + ${corso.giorno} + 
+				' ' + ${corso.oraInizio} + '-' + ${corso.oraFine} ">Cross fit</a> 
 			  <form th:action="@{'/admin/cancellaCorso' + '/' + ${corso.id}}" 
 				method="POST">
 				<button class="cancella"> Cancella </button>	 
