@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <title>Trainers</title>
+  <title>i Nostri Trainers</title>
 </head>
 <body>
 		 <!-- BARRA DI NAVIGAZIONE -->
-    <header>
+    <section id="trainers">
     	<nav id="navbar">
         <div>
           <a class="button" href = "/">HOME</a>
@@ -27,30 +27,30 @@
           <a class="button-outlined" th:href="@{/login}">ADMIN</a>
         </div>
     	</nav>
-    </header>
+      <div align="center" class="titolo">
+        <h1 style="font-weight: bold; font-style: italic; margin-top: 6%; font-size: 2.6em;">I NOSTRI TRAINERS:</h1>
+      </div>
+    </section>
 	
-	
-  
-<!-- 		<nav>
-			<h1>Palestra MDPL</h1>
-			<div >
-				<ul>
-					<li><strong><a href="/"> HOME </a></strong></li>
-					<li><strong><a th:href="@{/user/trainers}">TRAINERS</a></strong></li>
-					<li><strong><a th:href="@{/user/corsi}">CORSI </a></strong></li>
-					<li><strong><a th:href="@{/login}">ADMIN </a></strong></li>
-				</ul>
-				
-			</div>
-		</nav> -->
-		
-		<h4>Elenco Trainer</h4>
+<!-- 		<h4>Elenco Trainer</h4>
   		<ul>
 			<li th:each="trainer : ${trainers}">
 			<a	th:href="@{'/user/trainer' + '/' + ${trainer.id}}"
 				th:text="${trainer.nome} + ' ' + ${trainer.cognome}">Paolo Rossi</a> 	
 			</li>
-		</ul>
+		</ul> -->
+    <!-- SEZIONE CON TUTTI I TRAINERS -->
+    <div class="main-info" style="background-image: -webkit-linear-gradient(top, #FBCB0A 0%, #590696 100%);">
+      <!-- <div align="center" class="titolo">
+        <h1 style="font-weight: bold; font-style: italic; margin-top: 10%; font-size: 2.6em; color: #590696;">I NOSTRI TRAINERS:</h1>
+      </div> -->
+      <div class="main-info">
+        <div class="trainer">
+          
+        </div>
+      </div>
+      <br>
+    </div>
   				    <!-- SEZIONE CON FOOTER -->
     <footer id="footer">
       <div class="footer-item">

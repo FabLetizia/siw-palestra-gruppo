@@ -11,13 +11,36 @@ body{
 
 header{
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	background-image: url(https://www.consumatori.it/wp-content/uploads/2020/06/UNC_palestre-coronavirus.jpg);
 	height: 350px;
 	background-attachment: fixed;
 	background-size: cover;
-
 }
+
+#corsi{
+	background-color: #C70A80;	
+	color: #590696;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 350px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#trainers{
+	background-color: #FBCB0A;	
+	color: #590696;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 250px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
 
 #navbar{
 	margin: 15px;
@@ -45,6 +68,12 @@ header{
 	border-color: #00FFAB;
 	padding: 2%;
 	font-size: 130%;
+}
+
+.titolo{
+	font-style: italic; 
+	font-weight: bold; 
+	font-size: 1.5em;
 }
 
 .button{
@@ -84,6 +113,47 @@ header{
 	box-shadow: 10px 10px 5px #3e0369;
 }
 
+.scelta_settimana{
+	align-items: center;
+}
+
+.corso{
+	color: #590696;
+	background-color: #00FFAB;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	border-radius: 25px;
+	border-color: #590696;
+	padding: 2.5%;
+	margin: 3%;
+  box-shadow: 10px 10px 5px #3e0369, inset 10px 10px 5px #02e399;
+}
+
+.contatore{
+	color: #00FFAB; 
+	background-color: #590696; 
+	border-radius: 5px; 
+	width: 5%;
+}
+
+.trainer{
+	color: #590696;
+	background-color: #C70A80;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+	border-radius: 25px;
+	border-color: #590696;
+	padding: 2.5%;
+	margin: 3%;
+  box-shadow: 10px 10px 5px #3e0369, inset 10px 10px 5px #a30768;
+}
+
 .step{
 	color: #590696;
 	background-color: #00FFAB;
@@ -103,8 +173,8 @@ header{
 .footer-item{
 	flex-grow: 1;
 	display: flex;
-  	align-items: center;
-  	flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
 
 .intestazione_contatti{

@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <title>Corsi</title>
+  <title>i Nostri Corsi</title>
 </head>
 <body>
 	 <!-- BARRA DI NAVIGAZIONE -->
-    <header>
+    <section id="corsi">
     	<nav id="navbar">
         <div>
           <a class="button" href = "/">HOME</a>
@@ -27,33 +27,45 @@
           <a class="button-outlined" th:href="@{/login}">ADMIN</a>
         </div>
     	</nav>
-    </header>
-	
-  
-<!-- 		<nav>
-			<h1>Palestra MDPL</h1>
-			<div >
-				<ul>
-					<li><strong><a href="/"> HOME </a></strong></li>
-					<li><strong><a th:href="@{/user/trainers}">TRAINERS</a></strong></li>
-					<li><strong><a th:href="@{/user/corsi}">CORSI </a></strong></li>
-					<li><strong><a th:href="@{/login}">ADMIN </a></strong></li>
-					
-				</ul>
-				
-			</div>
-		</nav> -->
-		
-		<h4>Elenco Corsi</h4>
-  		<ul>
-			<li th:each="corso : ${corsi}">
-			<a	th:href="@{'/user/corso' + '/' + ${corso.id}}"
-				th:text="${corso.nome}">Cross fit</a> 	
-	
-			</li>
-		</ul>
-
-			    <!-- SEZIONE CON FOOTER -->
+      <div align="center" class="titolo">
+        <h1 style="font-weight: bold; font-style: italic; margin-top: 10%; font-size: 2.6em;">I NOSTRI CORSI:</h1>
+      </div>
+      <br>
+      <!-- SCELTA GIORNO DELLA SETTIMANA -->
+      <div class="scelta-settimana">
+        <a href="#">X</a>
+        <a href="#">Lunedi</a>
+        <a href="#">Martedi</a>
+        <a href="#">Mercoledi</a>
+        <a href="#">Giovedi</a>
+        <a href="#">Venerdi</a>
+        <a href="#">Sabato</a>
+        <a href="#">Domenica</a>
+      </div>
+      <br>
+    </section>
+    <!-- SEZIONE CON I CORSI PRESENTI NEL SISTEMA -->
+    <div class="main-info" style="background-image: -webkit-linear-gradient(top, #C70A80 0%, #590696 100%);">
+      <br>
+      <br>
+      <div class="main-info" style=" width: 45%;" th:each="corso : ${corsi}">
+        <div class="corso">
+          <h2 style="font-weight: bold; font-style: italic; font-size: 2.5em;" th:text="${corso.nome}">Nome Corso</h2>
+          <h3>Trainer:</h3><label th:text="${corso.trainer.nome} + ' ' + ${corso.trainer.cognome}">NomeTrainer CognomeTrainer</label>
+          <h3>Descrizione:</h3><label th:text="${corso.descrizione}">descrizione del corso</label>
+          <h3 th:text="${corso.giorno} + ' dalle ' + ${corso.oraInizio} + ' alle ' + ${corso.oraFine}">Venerdi dalle 13.00 alle 14.00</h3>
+          <h3>Posti Disponibili: </h3><i style="color: #00FFAB; background-color: #590696; border-radius: 5px; width: 5%;" th:text="${corso.postiDisponibili}">90</i>
+          <label>Iscriviti:</label>
+          <form>
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="nome" placeholder="Cognome">
+            <input type="text" name="nome" placeholder="Codice Fiscale">
+            <button>iscriviti</button>
+          </form>
+        </div>
+      </div>
+    </div>
+		<!-- SEZIONE CON FOOTER -->
     <footer id="footer">
       <div class="footer-item">
         <strong class="intestazione_contatti">SEGUICI</strong>
@@ -69,7 +81,7 @@
       <div class="footer-item">
         <strong class="intestazione_contatti">CONTATTACI</strong>
             <div>▬▬▬▬▬▬▬▬▬▬▬▬</div>
-            <p>Contattaci per avere un preventivo:</p>
+            <p>Contattaci per avere info:</p>
             <p>Tel: 546942, 546590, 546913</p>
             <p>Email: info@palestraMDPL.it</p>
             <br>
