@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.model.Corso;
 import com.example.demo.model.Trainer;
+import com.example.demo.service.CorsoService;
 import com.example.demo.service.TrainerService;
 import com.example.demo.validator.TrainerValidator;
 
@@ -22,6 +24,9 @@ public class TrainerController {
 	
 	@Autowired
 	private TrainerService trainerService;
+	
+	@Autowired
+	private CorsoService corsoService;
 	
 	@Autowired
 	private TrainerValidator trainerValidator;
@@ -62,6 +67,10 @@ public class TrainerController {
 
 	@PostMapping("/admin/cancellaTrainer/{id}")
 	public String removeTrainer(@PathVariable("id") Long id, Model model) {
+		Trainer trainer = this.trainerService.findById(id);
+		for(Corso c : trainer.getCorsi()) {
+			this.corsoService.removeCorsoDaPersone(c);
+		}
 		this.trainerService.remove(id);
 		return "redirect:/admin/trainers";
 	}

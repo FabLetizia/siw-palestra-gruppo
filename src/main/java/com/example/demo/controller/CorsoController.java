@@ -66,7 +66,10 @@ public class CorsoController {
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
-			corso.setNumeroPosti(corso.getSala().getCapienza());
+			if(corso.getSala()!= null) 
+				corso.setNumeroPosti(corso.getSala().getCapienza());
+			else 
+				corso.setNumeroPosti(0);
 			corsoService.save(corso);
 			return "redirect:/admin/corsi";
 		}
@@ -104,7 +107,11 @@ public class CorsoController {
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
-			corso.setNumeroPosti(corso.getSala().getCapienza());
+			if(corso.getSala()!= null) 
+				corso.setNumeroPosti(corso.getSala().getCapienza());
+			else 
+				corso.setNumeroPosti(0);
+			
 			corsoService.save(corso);
 			return "redirect:/admin/trainer/"+id;
 		}
@@ -166,7 +173,10 @@ public class CorsoController {
 			oldCorso.setOraInizio(corso.getOraInizio());
 			oldCorso.setOraFine(corso.getOraFine());
 			oldCorso.setSala(corso.getSala());
-			oldCorso.setNumeroPosti(corso.getSala().getCapienza()-oldCorso.getPersone().size());
+			if(corso.getSala() != null)
+				oldCorso.setNumeroPosti(corso.getSala().getCapienza()-oldCorso.getPersone().size());
+			else
+				oldCorso.setNumeroPosti(0);
 			corsoService.updateCorso(oldCorso);
 			model.addAttribute("corso", oldCorso);
 			return "redirect:/admin/corsi";
