@@ -40,13 +40,18 @@
 			</li>
 		</ul> -->
     <!-- SEZIONE CON TUTTI I TRAINERS -->
-    <div class="main-info" style="background-image: -webkit-linear-gradient(top, #FBCB0A 0%, #590696 100%);">
+    <div class="main-info column" style="background-image: -webkit-linear-gradient(top, #FBCB0A 0%, #590696 100%);">
       <!-- <div align="center" class="titolo">
         <h1 style="font-weight: bold; font-style: italic; margin-top: 10%; font-size: 2.6em; color: #590696;">I NOSTRI TRAINERS:</h1>
       </div> -->
-      <div class="main-info">
+      <div class="main-info-container" th:each="trainer : ${trainers}">
         <div class="trainer">
-          
+          <h1 th:text="${trainer.nome} + ' ' + ${trainer.cognome}"></h1>
+          <h3>Nazionalità:</h3><label th:text="${trainer.nazionalita}">nazionalita chef</label>
+          <h3>Corsi:</h3>
+          <li th:each="corso : ${trainer.corsi}">
+            <label th:text="${corso.nome} + ' :' + ${corso.giorno} + ' dalle ' + ${corso.oraInizio} + ' alle ' + ${corso.oraFine}">Nome Corso Dalle xx.xx alle yy.yy</label>
+          </li>
         </div>
       </div>
       <br>

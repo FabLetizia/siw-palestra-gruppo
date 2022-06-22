@@ -54,9 +54,8 @@ public class PersonaController {
 			corsoService.save(corso);
 			personaService.save(p);
 			
-			return "redirect:/user/corso/"+id;
+			return "redirect:/user/corsi";
 		}
-		model.addAttribute("corso", corsoService.findById(id));
-		return "user/personaForm.html";
+		return "redirect:/user/corsi";
 	}
 }

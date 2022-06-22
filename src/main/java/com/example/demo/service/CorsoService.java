@@ -44,6 +44,16 @@ public class CorsoService {
 		}
 		return corsi;
 	}
+	
+	public List<Corso> findByGiorno(String giorno){
+		return this.corsoRepository.findByGiornoIgnoreCaseOrderByOraInizio(giorno);
+//		List<Corso> corsi = new ArrayList<>();
+//		for(Corso c: corsoRepository.findAll()) {
+//			if(c.getGiorno().equals(giorno))
+//				corsi.add(c);
+//		}
+//		return corsi;
+	}
 
 	public boolean hasSalaNull(Corso corso) {
 		return corso.getSala() == null;

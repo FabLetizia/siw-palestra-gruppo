@@ -14,9 +14,16 @@ header{
 	flex-direction: column;
 	align-items: center;
 	background-image: url(https://www.consumatori.it/wp-content/uploads/2020/06/UNC_palestre-coronavirus.jpg);
-	height: 350px;
+	height: 300px;
 	background-attachment: fixed;
 	background-size: cover;
+}
+
+i{
+	color: #00FFAB; 
+	background-color: #590696; 
+	border-radius: 5px; 
+	width: 5%;
 }
 
 #corsi{
@@ -80,7 +87,7 @@ header{
 	font-weight: bold; 
 	font-style: italic; 
 	margin-top: 10%; 
-	font-size: 2.6em;"
+	font-size: 2.6em;
 }
 
 .button{
@@ -102,6 +109,19 @@ header{
 	color: #00FFAB;	
 	display: flex;
 	justify-content: center;
+	align-items: center;
+}
+
+.main-info-container{
+	color: #00FFAB;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 50%;
+}
+
+.column{
+	flex-direction: column;
 }
 
 .info{
@@ -136,7 +156,13 @@ header{
 	border-color: #590696;
 	padding: 2.5%;
 	margin: 3%;
-  box-shadow: 10px 10px 5px #3e0369, inset 10px 10px 5px #02e399;
+  box-shadow: 10px 10px 5px #3e0369, inset 30px 30px 15px #02e399;
+}
+
+.corso h2{
+	font-weight: bold;
+	font-style: italic;
+	font-size: 2.5em;
 }
 
 .contatore{
@@ -147,7 +173,7 @@ header{
 }
 
 .trainer{
-	color: #590696;
+	color: #FBCB0A;
 	background-color: #C70A80;
 	display: flex;
 	justify-content: center;
@@ -158,15 +184,33 @@ header{
 	border-color: #590696;
 	padding: 2.5%;
 	margin: 3%;
-  box-shadow: 10px 10px 5px #3e0369, inset 10px 10px 5px #a30768;
+	width: 65%;
+  box-shadow: 10px 10px 5px #3e0369, inset 20px 20px 10px #a30768;
+}
+
+.trainer h1{
+	color: #590696;
+	font-weight: bold; 
+	font-style: italic; 
+	margin-top: 5%; 
+	font-size: 2.6em;
+}
+
+.trainer h3{
+	color: #590696;
+}
+
+.trainer li{
+	font-weight: bold;
+	font-style: italic;
 }
 
 .come-funziona{
 	color: #00FFAB; 
-	background-color: #590696;"
+	background-color: #590696;
 }
 
-.come-funziona span{
+span{
 	height: 40px;
 }
 
