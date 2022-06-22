@@ -13,10 +13,12 @@ header{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-image: url(https://www.consumatori.it/wp-content/uploads/2020/06/UNC_palestre-coronavirus.jpg);
-	height: 300px;
+	background-image: url(https://www.villaverderesort.com/templates/yootheme/cache/header_palestra-1e321b4f.jpeg);
+	height: 410px;
 	background-attachment: fixed;
 	background-size: cover;
+	background-position-y: -120px;
+	margin-bottom: -10%;
 }
 
 i{
@@ -74,6 +76,16 @@ i{
   justify-content: space-around;
   align-items: center;
   box-shadow: inset 10px 10px 5px #470478;
+}
+
+.titolo-palestra{
+	font-size: 4.5em;
+	  color: #EE5007;
+    margin-top: 6%;
+    font-style: italic;
+    background: #590696;
+    border-radius: 25px;
+    padding: 1%;
 }
 
 #navbar a:hover{
