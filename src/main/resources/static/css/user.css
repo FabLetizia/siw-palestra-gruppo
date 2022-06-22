@@ -26,6 +26,10 @@ i{
 	width: 5%;
 }
 
+.sfondo-viola{
+	background-color: #590696;
+}
+
 #corsi{
 	background-color: #C70A80;	
 	color: #590696;
@@ -33,6 +37,17 @@ i{
 	flex-direction: column;
 	align-items: center;
 	height: 350px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#form{
+	background-color: #C70A80;	
+	color: #590696;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 1200px;
 	background-attachment: fixed;
 	background-size: cover;
 }
@@ -80,7 +95,7 @@ i{
 .titolo{
 	font-style: italic; 
 	font-weight: bold; 
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 .titolo h1{
@@ -105,6 +120,20 @@ i{
 	padding: 2%;
 }
 
+.button-iscriviti{
+	color: #00FFAB;
+	background-color: #590696;
+	text-decoration: none;
+	border-radius: 3px;
+	font-weight: bold;
+	padding: 2%;
+}
+
+.gradient-info{
+	background-image: -webkit-linear-gradient(top, #00FFAB 0%, #590696 100%); 
+	color: #590696;
+}
+
 .main-info{
 	color: #00FFAB;	
 	display: flex;
@@ -117,11 +146,23 @@ i{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 50%;
+	width: 60%;
 }
 
 .column{
 	flex-direction: column;
+}
+
+.box{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: solid 4px;
+	border-color: #590696;
+	border-radius: 20px;
+	padding: 5%;
+	margin-top: 7%;
+	width: 130%;
 }
 
 .info{
@@ -156,6 +197,7 @@ i{
 	border-color: #590696;
 	padding: 2.5%;
 	margin: 3%;
+	width: 50%;
   box-shadow: 10px 10px 5px #3e0369, inset 30px 30px 15px #02e399;
 }
 

@@ -33,20 +33,21 @@
       <br>
       <!-- SCELTA GIORNO DELLA SETTIMANA -->
       <div class="scelta-settimana">
-        <a href="/user/corsi">X</a>
-        <a th:href="@{/user/corsi/lun}">Lunedi</a>
-        <a th:href="@{/user/corsi/mar}">Martedi</a>
-        <a th:href="@{/user/corsi/merc}">Mercoledi</a>
-        <a th:href="@{/user/corsi/giov}">Giovedi</a>
-        <a th:href="@{/user/corsi/ven}">Venerdi</a>
-        <a th:href="@{/user/corsi/sab}">Sabato</a>
-        <a th:href="@{/user/corsi/dom}">Domenica</a>
+        <strong>
+          <a href="/user/corsi">X</a>
+          <a th:href="@{/user/corsi/lun}">Lunedi</a>
+          <a th:href="@{/user/corsi/mar}">Martedi</a>
+          <a th:href="@{/user/corsi/merc}">Mercoledi</a>
+          <a th:href="@{/user/corsi/giov}">Giovedi</a>
+          <a th:href="@{/user/corsi/ven}">Venerdi</a>
+          <a th:href="@{/user/corsi/sab}">Sabato</a>
+          <a th:href="@{/user/corsi/dom}">Domenica</a>
+        </strong>
       </div>
       <br>
     </section>
     <!-- SEZIONE CON I CORSI PRESENTI NEL SISTEMA -->
     <div class="main-info column" style="background-image: -webkit-linear-gradient(top, #C70A80 20%, #590696 80%);">
-      <br>
       <div class="main-info-container" th:each="corso : ${corsi}">
         <div class="corso">
           <h2 th:text="${corso.nome}">Nome Corso</h2>
@@ -55,19 +56,8 @@
           <h3 th:text="${corso.giorno} + ' dalle ' + ${corso.oraInizio} + ' alle ' + ${corso.oraFine}">Venerdi dalle 13.00 alle 14.00</h3>
           <h3>Posti Disponibili: </h3><i th:text="${corso.numeroPosti}">90</i>
           <label>Iscriviti:</label>
-          <form th:action="@{'/user/addPersonaACorso' + '/' + ${corso.id}}" method="POST" th:object="${persona}">
-            <div th:if="${#fields.hasGlobalErrors()}">
-              <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">Errore
-              globale</p>
-            </div>
-            <input type="text" placeholder="Nome" th:field="*{nome}">
-            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-            <input type="text" placeholder="Cognome" th:field="*{cognome}">
-            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{cognome}"></span>
-            <input type="email" placeholder="Email" th:field="*{email}">
-            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{email}"></span>
-            <button>iscriviti</button>
-          </form>
+          <br>
+          <span><a th:href="@{/user/personaForm/{id}(id=${corso.id})}" class="button-iscriviti">ISCRIVITI</a></span>
         </div>
       </div>
       </div>

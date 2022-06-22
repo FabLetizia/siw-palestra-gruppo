@@ -56,6 +56,7 @@ public class PersonaController {
 			
 			return "redirect:/user/corsi";
 		}
-		return "redirect:/user/corsi";
+		model.addAttribute("corso", this.corsoService.findById(id));		
+		return "user/personaForm.html";
 	}
 }
