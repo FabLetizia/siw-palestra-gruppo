@@ -110,6 +110,12 @@ nav {
 	font-size: 30px;
 }
 
+.elenco ul li a:hover {
+	color: white;
+	text-decoration: underline;
+	font-size: 32px;
+}
+
 .elenco div a {
 	color: silver;
 	text-align: center;
