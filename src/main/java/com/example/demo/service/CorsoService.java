@@ -46,13 +46,13 @@ public class CorsoService {
 	}
 	
 	public List<Corso> findByGiorno(String giorno){
-//		return this.corsoRepository.findByGiorno(giorno);
-		List<Corso> corsi = new ArrayList<>();
-		for(Corso c: corsoRepository.findAll()) {
-			if(c.getGiorno().equals(giorno))
-				corsi.add(c);
-		}
-		return corsi;
+		return this.corsoRepository.findByGiornoIgnoreCaseOrderByOraInizio(giorno);
+//		List<Corso> corsi = new ArrayList<>();
+//		for(Corso c: corsoRepository.findAll()) {
+//			if(c.getGiorno().equals(giorno))
+//				corsi.add(c);
+//		}
+//		return corsi;
 	}
 
 	public boolean hasSalaNull(Corso corso) {

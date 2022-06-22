@@ -14,6 +14,6 @@ public interface CorsoRepository extends CrudRepository<Corso, Long> {
 
 	public boolean existsByGiornoAndOraInizioAndSala(String giorno, LocalTime oraInizio, Sala sala);
 	
-	public List<Corso> findAllByGiorno(String giorno);
+	public List<Corso> findByGiornoIgnoreCaseOrderByOraInizio(String giorno);
 
 }
