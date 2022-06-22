@@ -66,7 +66,10 @@ public class CorsoController {
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
-			corso.setNumeroPosti(corso.getSala().getCapienza());
+			if(corso.getSala()!= null) 
+				corso.setNumeroPosti(corso.getSala().getCapienza());
+			else 
+				corso.setNumeroPosti(0);
 			corsoService.save(corso);
 			return "redirect:/admin/corsi";
 		}
@@ -104,7 +107,11 @@ public class CorsoController {
 		this.corsoValidator.validate(corso, bindingResults);
 		
 		if(!bindingResults.hasErrors()) {
-			corso.setNumeroPosti(corso.getSala().getCapienza());
+			if(corso.getSala()!= null) 
+				corso.setNumeroPosti(corso.getSala().getCapienza());
+			else 
+				corso.setNumeroPosti(0);
+			
 			corsoService.save(corso);
 			return "redirect:/admin/trainer/"+id;
 		}
@@ -166,7 +173,10 @@ public class CorsoController {
 			oldCorso.setOraInizio(corso.getOraInizio());
 			oldCorso.setOraFine(corso.getOraFine());
 			oldCorso.setSala(corso.getSala());
-			oldCorso.setNumeroPosti(corso.getSala().getCapienza()-oldCorso.getPersone().size());
+			if(corso.getSala() != null)
+				oldCorso.setNumeroPosti(corso.getSala().getCapienza()-oldCorso.getPersone().size());
+			else
+				oldCorso.setNumeroPosti(0);
 			corsoService.updateCorso(oldCorso);
 			model.addAttribute("corso", oldCorso);
 			return "redirect:/admin/corsi";
@@ -179,29 +189,4 @@ public class CorsoController {
 			
 	}
 	
-//	@GetMapping("/admin/modificaTrainer/{id}")
-//	public String getModificaTrainer(@PathVariable("id") Long id, Model model) {
-//		Trainer trainer = this.trainerService.findById(id);
-//		model.addAttribute("trainer", trainer);
-//		return "trainer/modificaTrainer.html";
-//	}
-//	
-//	@PostMapping("/admin/trainer/modifica/{id}")
-//	public String updateTrainer(@Valid @ModelAttribute("trainer") Trainer trainer, @PathVariable("id") Long id, BindingResult bindingResults, Model model) {
-//		this.trainerValidator.validate(trainer, bindingResults);
-//		Trainer oldTrainer = this.trainerService.findById(id);
-//		
-//		if(!bindingResults.hasErrors()) {
-//			oldTrainer.setNome(trainer.getNome());
-//			oldTrainer.setCognome(trainer.getCognome());
-//			oldTrainer.setNazionalita(trainer.getNazionalita());
-//			oldTrainer.setEta(trainer.getEta());
-//			
-//			trainerService.save(oldTrainer);
-//			model.addAttribute("trainers", trainerService.findAll());
-//			return "trainer/trainers.html";
-//		}
-//		model.addAttribute("trainer", oldTrainer);
-//		return "trainer/modificaTrainer.html";
-//	}
 }
