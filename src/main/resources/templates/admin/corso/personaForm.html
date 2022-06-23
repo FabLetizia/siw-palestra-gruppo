@@ -33,9 +33,9 @@
     <section>
     <div align="center" class="box">
 			<div><h3><strong>Inserisci i dati</strong></h3></div>
-			<form th:action="@{'/user/addPersonaACorso' + '/' + ${corso.id}}" method="POST" th:object="${persona}">
+			<form th:action="@{'/admin/addPersonaACorso' + '/' + ${corso.id}}" method="POST" th:object="${persona}">
 				<div th:if="${#fields.hasGlobalErrors()}">
-						<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" style="color: #00FFAB;">Errore
+						<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" >Errore
 						globale</p>
 				</div>
 				<div>
@@ -47,14 +47,14 @@
 				<div>
 					Cognome: <input type="text" th:field="*{cognome}" />
 					<div>
-						<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}" style="color: #00FFAB;"></span>
+						<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
 					</div>
 
 				</div>
 				<div>
 					Email: <input type="text" th:field="*{email}" />
 					<div>
-						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: #00FFAB;"></span>
+						<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 					</div>
 				</div>
 				<div>

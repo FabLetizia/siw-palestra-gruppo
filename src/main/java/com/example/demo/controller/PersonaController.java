@@ -29,14 +29,14 @@ public class PersonaController {
 	@Autowired
 	private PersonaValidator personaValidator;
 	
-	@GetMapping("/user/personaForm/{id}")
+	@GetMapping("/admin/personaForm/{id}")
 	public String getPersonaForm(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("persona", new Persona());
 		model.addAttribute("corso", corsoService.findById(id));
-		return "user/personaForm.html";
+		return "admin/corso/personaForm.html";
 	}
 	
-	@PostMapping("/user/addPersonaACorso/{id}")
+	@PostMapping("/admin/addPersonaACorso/{id}")
 	public String addPersonaPerCorso(@PathVariable("id") Long id, @Valid @ModelAttribute("persona") Persona persona, BindingResult bindingResults, Model model) {
 		Corso corso = corsoService.findById(id);
 		Persona p = persona;
@@ -54,9 +54,9 @@ public class PersonaController {
 			corsoService.save(corso);
 			personaService.save(p);
 			
-			return "redirect:/user/corsi";
+			return "redirect:/admin/corso"+id;
 		}
 		model.addAttribute("corso", this.corsoService.findById(id));		
-		return "user/personaForm.html";
+		return "admin/corso/personaForm.html";
 	}
 }
