@@ -31,7 +31,7 @@ public class Sala {
 	private Integer capienza;
 	
 	@OneToMany(mappedBy = "sala",cascade = {CascadeType.MERGE})
-	private List<Corso> corsi;  //FIXME lista ordinata in base agli orari
+	private List<Corso> corsi;
 
 	/* COSTRUTTORI */
 	public Sala() {
@@ -71,7 +71,5 @@ public class Sala {
 	public void setCorsi(List<Corso> corsi) {
 		this.corsi = corsi;
 	}
-	
-	
 	
 }

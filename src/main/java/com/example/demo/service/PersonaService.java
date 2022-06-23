@@ -31,15 +31,6 @@ public class PersonaService {
 		return personaRepository.findById(id).get();
 	}
 	
-//	public boolean alreadyExists(Persona persona) {
-//		return this.trainerRepository.existsByNomeAndCognomeAndNazionalitaAndEta(trainer.getNome(),
-//				trainer.getCognome(), trainer.getNazionalita(),trainer.getEta());
-//	}
-	
-//	public boolean alreadyExists(Persona persona) {
-//		return this.personaRepository.existsByEmailAndCorso(persona.getEmail(), persona.getCorso());
-//	}
-	
 	public List<Persona> findAll(){
 		List<Persona> persone= new ArrayList<>();
 		for(Persona p: personaRepository.findAll()) {
