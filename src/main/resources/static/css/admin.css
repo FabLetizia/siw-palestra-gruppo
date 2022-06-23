@@ -186,6 +186,10 @@ button.conferma:hover {
 	font-size: 20px;
 }
 
+.elenco ul li a.modifica {
+	font-size: 30px;
+}
+
 span.def {
 	color: #00FFAB;
 }

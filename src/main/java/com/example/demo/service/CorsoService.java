@@ -55,7 +55,9 @@ public class CorsoService {
 	}
 
 	public boolean SalaOccupata(Corso corso) {
-		return this.corsoRepository.existsByGiornoAndOraInizioAndSala(corso.getGiorno(), corso.getOraInizio(),corso.getSala());
+		if(corso.getSala()!=null)
+			return this.corsoRepository.existsByGiornoAndOraInizioAndSala(corso.getGiorno(), corso.getOraInizio(),corso.getSala());
+		return false;
 	}
 
 	public void updateCorso(Corso corso) {

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.Corso;
 import com.example.demo.model.Trainer;
@@ -39,12 +38,6 @@ public class UserController {
 		return "user/userCorsi.html";
 	}
 	
-	@GetMapping("/user/trainer/{id}")
-	public String getTrainerById(@PathVariable("id") Long id, Model model) {
-		Trainer trainer = trainerService.findById(id);
-		model.addAttribute("trainer", trainer);
-		return "user/userTrainer.html";
-	}
 	
 	@GetMapping("/user/corsi/lun")
 	public String getCorsiPerLunedi( Model model){
@@ -103,15 +96,4 @@ public class UserController {
 		return "user/userCorsi.html";
 	}
 	
-	@GetMapping("/user/corso/{id}")
-	public String getCorso(@PathVariable("id") Long id, Model model) {
-		Corso corso = corsoService.findById(id);
-		model.addAttribute("corso", corso);
-		String nomeSala = "ancora nessuna sala";
-		if(corsoService.hasSalaNull(corso))
-			model.addAttribute("sala", nomeSala);
-		else
-			model.addAttribute("sala", corso.getSala().getNome());
-		return "user/userCorso.html";
-	}
 }
