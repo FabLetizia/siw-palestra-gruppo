@@ -2,12 +2,9 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.model.Corso;
 import com.example.demo.model.Persona;
 import com.example.demo.repository.CorsoRepository;
@@ -47,12 +44,6 @@ public class CorsoService {
 	
 	public List<Corso> findByGiorno(String giorno){
 		return this.corsoRepository.findByGiornoIgnoreCaseOrderByOraInizio(giorno);
-//		List<Corso> corsi = new ArrayList<>();
-//		for(Corso c: corsoRepository.findAll()) {
-//			if(c.getGiorno().equals(giorno))
-//				corsi.add(c);
-//		}
-//		return corsi;
 	}
 
 	public boolean hasSalaNull(Corso corso) {
