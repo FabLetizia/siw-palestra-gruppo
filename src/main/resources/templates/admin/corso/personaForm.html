@@ -3,37 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="/css/user.css">
-<!-- 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <title>i Nostri Corsi</title>
+  <link rel="stylesheet" href = "/css/admin.css"/>
+  <title>Iscrivi Persona</title>
 </head>
-<body th:object="${corso}">
-	 <!-- BARRA DI NAVIGAZIONE -->
-    <section id="form">
-    	<nav id="navbar">
-        <div>
-          <a class="button" href = "/">HOME</a>
-        </div>
-        <div>
-          <a class="button" th:href="@{/user/trainers}">TRAINER</a>
-        </div>
-        <div>
-          <a class="button" th:href="@{/user/corsi}">CORSI</a>
-        </div>
-        <div>
-          <a class="button-outlined" th:href="@{/login}">ADMIN</a>
-        </div>
-    	</nav>
-      <div align="center" class="titolo">
-        <h1 th:text="'ISCRIZIONE A: ' + ${corso.nome} + ' DALLE ' + ${corso.oraInizio} + ' ALLE ' + ${corso.oraFine}"></h1>
-      </div>
-    <section>
-    <div align="center" class="box">
-			<div><h3><strong>Inserisci i dati</strong></h3></div>
-			<form th:action="@{'/admin/addPersonaACorso' + '/' + ${corso.id}}" method="POST" th:object="${persona}">
+<body class = "header-body">
+	
+		<nav class = "nav-links">
+			<h1 class="title">Palestra MDPL</h1>
+			<div >
+				<ul>
+					<li><strong><a th:href = "@{/logout}"> LOGOUT</a></strong></li>
+					<li><strong><a th:href="@{/admin/admin}">ADMIN </a></strong></li>
+					<li><strong><a th:href="@{/admin/trainers}">TRAINER </a></strong></li>
+					<li><strong><a th:href="@{/admin/corsi}">CORSI </a></strong></li>
+					<li><strong><a th:href="@{/admin/sale}">SALE </a></strong></li>
+				</ul>
+				
+			</div>
+		</nav>
+  
+		<div class="text-box">
+		<div class="elenco">
+		
+		<h4>Iscrizione Persona</h4>
+		<form th:action="@{'/admin/addPersonaACorso' + '/' + ${corso.id}}" method="POST" th:object="${persona}">
 				<div th:if="${#fields.hasGlobalErrors()}">
 						<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" >Errore
 						globale</p>
@@ -62,6 +55,8 @@
 					Conferma
 				</div>
 			</form>
-		</div>
-	</body>
+	</div>
+	</div>
+  	
+</body>
 </html>
