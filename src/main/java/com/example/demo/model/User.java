@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "users") // cambiamo nome perchè in postgres user e' una parola riservata
+@Table(name = "users") // cambiamo nome perchè in postgres user è una parola riservata
 public class User {
 	
 	@Id

@@ -33,7 +33,7 @@
 				th:text="${trainer.nome} + ' ' + ${trainer.cognome}">Paolo Rossi</a> 	
 				<button class="cancella"> Cancella </button>
 			</form>
-			<a th:href="@{'/admin/modificaTrainer' + '/' + ${trainer.id}}">
+			<a class="modifica" th:href="@{'/admin/modificaTrainer' + '/' + ${trainer.id}}">
 					<button class="modifica"> Modifica</button>
 			</a>  
 			</li>

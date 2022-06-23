@@ -26,7 +26,6 @@ public class SalaController {
 	@Autowired
 	private SalaValidator salaValidator;
 	
-	/* TODO */
 	@GetMapping("/admin/sale")
 	public String getSale(Model model) {
 		List<Sala> sale = salaService.findAll();  

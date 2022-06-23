@@ -36,7 +36,6 @@ public class Trainer {
 	@NotNull
 	private Integer eta;
 
-	
 	@OneToMany(mappedBy = "trainer", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
 	private List<Corso> corsi;
 	
@@ -93,7 +92,5 @@ public class Trainer {
 	public void setCorsi(List<Corso> corsi) {
 		this.corsi = corsi;
 	}
-	
-	
 	
 }
